@@ -25,38 +25,6 @@ npm install
 ## Usage
 Creating a comprehensive README for your Express project is crucial for documentation. It should provide all the necessary information about your project, including how to set it up, run it, and understand its structure. Below is a template you can use as a starting point. Adjust it according to the specifics of your project:
 
----
-
-# Project Name
-
-## Description
-
-Briefly describe what your project does. Include any important information about its purpose, use cases, and functionality.
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-- Add as many features as your project has
-
-## Installation
-
-Provide step-by-step instructions on how to get a development environment running.
-
-```bash
-git clone https://your-repository-link.git
-cd your-project-name
-npm install
-```
-
-## Usage
-
-Explain how to use your application with examples. Include any necessary commands.
-
-```bash
-npm start
-```
 
 ## API Documentation
 
