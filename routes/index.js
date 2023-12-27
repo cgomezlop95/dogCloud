@@ -4,7 +4,7 @@ const router = express.Router();
 const isAuthenticated = require('../middlewares/isAuthenticated');
 
 router.get('/', isAuthenticated, function(req, res, next) {
-  res.render('index', { title: 'Express project template' });
+  res.render('index', { title: 'Welcome to DoggyRescue' });
 });
 
 router.use('/auth', require('./auth'));
