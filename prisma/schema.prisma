@@ -11,35 +11,55 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  email String @unique
-  password String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  isAdmin Boolean @default(false)
+  id               String            @id @default(uuid())
+  email            String            @unique
+  password         String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  isAdmin          Boolean           @default(false)
+  adoptionRequests adoptionRequest[]
 }
 
 //Cris: Añado un modelo Dog y otro modelo adoptionRequest
 
 model Dog {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  dogName String
-  dogAge Float
-  dogWeight Float
-  dogSex String
-  dogBreed String
-  dogAdopted Boolean
-  suitableForKids Boolean?
+  id                   String            @id @default(uuid())
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  dogName              String
+  dogAge               Float
+  dogWeight            Float
+  dogSex               String
+  dogBreed             String
+  dogAdopted           Boolean
+  suitableForKids      Boolean?
   suitableForOtherPets Boolean?
-  description String?
-  dogPhotoURL String?
+  dogDescription       String?
+  dogPhotoURL          String?
+  adoptionRequests     adoptionRequest[]
 }
 
+//Cris: Esta es la tercera tabla para mis relaciones M:M
+
 model adoptionRequest {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  approved Boolean
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  requestApproved    Boolean
+  adopterAge         Int
+  hasExperience      Boolean
+  dailyHoursAway     Int
+  homeOffice         Boolean
+  hasOtherPets       Boolean
+  hasKids            Boolean
+  hasGarden          Boolean
+  numberOfTrips      Int
+  monthlyMoney       Int
+  numberOfPeople     Int
+  adopterDescription String
+  userId             String
+  user               User     @relation(fields: [userId], references: [id])
+  dogId              String
+  dog                Dog      @relation(fields: [dogId], references: [id])
+
+  @@id([userId, dogId])
 }
