@@ -8,5 +8,7 @@ router.get('/', isAuthenticated, function(req, res, next) {
 });
 
 router.use('/auth', require('./auth'));
+router.use('/dog', require('./dog')); //Cris
+router.use('/adoption-requests', require('./adoptionRequest')); //Cris
 
 module.exports = router;

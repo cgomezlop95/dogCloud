@@ -115,4 +115,15 @@ router.get("/register-page", (req, res) => {
   res.render("register", { error: req.flash("error") });
 });
 
+//Cris: Added logout
+
+router.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
 module.exports = router;

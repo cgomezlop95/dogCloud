@@ -4,5 +4,30 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+div ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 55px;
+  justify-content: center;
+  list-style-type: none; /* This is to avoid the bullet points */
+  text-align: center;
+}
+
+.singleDog {
+  border-radius: 16px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px black solid;
+  margin-right: 20px;
+}
+
+.singleDog:hover {
+  font-weight: bold;
+}
+
+nav a {
+  margin-right: 20px; 
 }

@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   await prisma.Dog.deleteMany({}); // <- Borra nada mas ejecutarse
-  const numberOfDogs = 4;
+  const numberOfDogs = 8;
 
   const dogs = [];
 
