@@ -3,31 +3,30 @@ const { faker } = require("@faker-js/faker");
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.Post.deleteMany({}); // <- Borra nada mas ejecutarse
-  const numberOfPosts = 18;
+  await prisma.Dog.deleteMany({}); // <- Borra nada mas ejecutarse
+  const numberOfDogs = 4;
 
-  const posts = [];
+  const dogs = [];
 
-  for (i = 0; i < numberOfPosts; i++) {
-    const authorsId = [
-      "844bf92e-a0c6-4e8d-96c1-ade38f976d29",
-      "4d7a94d0-c7b5-4ea2-aa3c-9ff96376c3b9",
-      "4aaf0f3e-b688-4f74-acd2-2598ffd16b61",
-      "a49c3136-2982-4467-9365-cde8ca1b6882",
-    ];
-    const randomId = Math.floor(Math.random() * authorsId.length);
-    const post = {
-      title: faker.hacker.noun(),
-      content: faker.hacker.phrase(),
-      published: faker.datatype.boolean(),
-      authorId: authorsId[randomId],
+  for (i = 0; i < numberOfDogs; i++) {
+    //const authorsId = [
+      //"844bf92e-a0c6-4e8d-96c1-ade38f976d29",
+    //];
+    //const randomId = Math.floor(Math.random() * authorsId.length);
+    const dog = {
+      dogName: faker.person.firstName(),
+      dogAge: faker.number.int({ min: 0, max: 18 }),
+      dogWeight: faker.number.float({ min: 3, max: 50, precision: 0.1 }),
+      dogSex: faker.person.sex(),
+      dogBreed: faker.animal.dog(),
+      dogAdopted: false,
     };
-    posts.push(post);
+    dogs.push(dog);
   }
 
   const addPosts = async () =>
-    await prisma.Post.createMany({
-      data: posts,
+    await prisma.Dog.createMany({
+      data: dogs,
       skipDuplicates: true,
     });
 

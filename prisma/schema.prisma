@@ -18,3 +18,28 @@ model User {
   updatedAt DateTime @updatedAt
   isAdmin Boolean @default(false)
 }
+
+//Cris: Añado un modelo Dog y otro modelo adoptionRequest
+
+model Dog {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  dogName String
+  dogAge Float
+  dogWeight Float
+  dogSex String
+  dogBreed String
+  dogAdopted Boolean
+  suitableForKids Boolean?
+  suitableForOtherPets Boolean?
+  description String?
+  dogPhotoURL String?
+}
+
+model adoptionRequest {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  approved Boolean
+}
