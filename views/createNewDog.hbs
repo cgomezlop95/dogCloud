@@ -1,0 +1,72 @@
+<h1>Add a new dog to the data base (only admins)</h1>
+
+{{! action - Specifies where to send the form-data when a form is submitted }}
+{{! method - Specifies the HTTP method to use when sending form-data }}
+
+<form action="/create-new-dog" method="post">
+
+  <div>
+    <label for="dogName">Dog Name</label>
+    <input type="text" id="dogName" name="dogName" />
+  </div>
+
+  <div>
+    <label for="dogAge">Dog Age (in years)</label>
+    <input type="number" id="dogAge" name="dogAge" min="0" />
+  </div>
+
+  <div>
+    <label for="dogWeight">Dog Weight (in kilos)</label>
+    <input type="number" id="dogWeight" name="dogWeight" min="0" />
+  </div>
+
+  <div>
+    <label for="dogSex">Dog Sex</label>
+    <select id="dogSex" name="dogSex">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="dogBreed">Dog Breed</label>
+    <input type="text" id="dogBreed" name="dogBreed" />
+  </div>
+
+  <div>
+    <label for="dogAdopted">Has the dog been adopted?</label>
+    <input type="checkbox" id="dogAdopted" name="dogAdopted" />
+  </div>
+
+  <div>
+    <label for="suitableForKids">Is this dog suitable for kids?</label>
+    <input type="checkbox" id="suitableForKids" name="suitableForKids" />
+  </div>
+
+  <div>
+    <label for="suitableForOtherPets">Is this dog suitable for other pets?</label>
+    <input
+      type="checkbox"
+      id="suitableForOtherPets"
+      name="suitableForOtherPets"
+    />
+  </div>
+
+  <div>
+    <label for="dogDescription">Dog Description</label>
+    <textarea
+      id="dogDescription"
+      name="dogDescription"
+      cols="70"
+      rows="5"
+      placeholder="How is the dog?"
+    ></textarea>
+  </div>
+
+  <button type="submit">Add new dog</button>
+
+</form>
+
+{{! If you want a simple, vertically stacked form, 
+<br> might be sufficient. If you want more structure and control over styling, 
+using <div> containers might be a better choice. }}

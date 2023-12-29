@@ -15,8 +15,8 @@ async function main() {
     //const randomId = Math.floor(Math.random() * authorsId.length);
     const dog = {
       dogName: faker.person.firstName(),
-      dogAge: faker.number.int({ min: 0, max: 18 }),
-      dogWeight: faker.number.float({ min: 3, max: 50, precision: 0.1 }),
+      dogAge: faker.number.int({ min: 0, max: 20 }),
+      dogWeight: faker.number.float({ min: 0, precision: 0.1 }),
       dogSex: faker.person.sex(),
       dogBreed: faker.animal.dog(),
       dogAdopted: false,

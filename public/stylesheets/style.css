@@ -29,5 +29,11 @@ div ul {
 }
 
 nav a {
-  margin-right: 20px; 
+  margin-right: 20px;
+}
+
+/* This is applying so far for the formular of new dogs */
+form > div {
+  margin-bottom: 18px;
+  font-weight: bold;
 }
