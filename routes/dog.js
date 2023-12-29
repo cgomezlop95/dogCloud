@@ -34,4 +34,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Route to delete the dog from the data base
+
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    await prisma.dog.delete({
+      where: { id: req.params.id },
+    });
+    res.redirect("/dog");
+  } catch (error) {
+    console.error(error);
+    res.json("Server error");
+  }
+});
+
 module.exports = router;

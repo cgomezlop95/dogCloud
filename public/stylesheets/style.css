@@ -20,7 +20,7 @@ div ul {
   border-radius: 16px;
   margin: 20px;
   padding: 10px;
-  border: 1px black solid;
+  border: 1px white;
   margin-right: 20px;
 }
 
@@ -32,8 +32,7 @@ nav a {
   margin-right: 20px;
 }
 
-/* This is applying so far for the formular of new dogs */
-form > div {
+div {
   margin-bottom: 18px;
   font-weight: bold;
 }

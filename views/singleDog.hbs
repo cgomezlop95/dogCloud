@@ -6,3 +6,32 @@
 <p>Is this dog suitable for kids? {{dog.suitableForKids}}</p>
 <p>Is this dog suitable for other pets? {{dog.suitableForOtherPets}}</p>
 <p>Dog Description: {{dog.dogDescription}}</p>
+
+<div>
+  {{#if dog.dogPhotoURL}}
+    <img
+      src="{{dog.dogPhotoURL}}"
+      alt="{{dog.dogBreed}}"
+      width="200px"
+      style="border-radius: 10%;"
+    />
+  {{/if}}
+</div>
+
+<div>
+  <a href="/update-dog/{{dog.id}}">
+    <button>Update dog details</button>
+  </a>
+</div>
+
+<div>
+  <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
+    <button>Delete</button>
+  </form>
+</div>
+
+<div>
+  <a href="/dog/">
+    <button>Cancel</button>
+  </a>
+</div>
