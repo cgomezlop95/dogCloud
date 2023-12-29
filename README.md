@@ -1,5 +1,4 @@
-# Project Name
-DoggyRescue
+# DoggyRescue
 
 ## Description
 
