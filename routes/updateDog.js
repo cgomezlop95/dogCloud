@@ -27,7 +27,6 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
   try {
-    //console.log(req.file);
     const b64 = Buffer.from(req.file.buffer).toString("base64");
     let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
     const cldRes = await handleUpload(dataURI);
@@ -47,7 +46,6 @@ router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
         suitableForKids: isSuitableForKids,
         suitableForOtherPets: isSuitableForOtherPets,
         dogDescription: req.body.dogDescription,
-        dogPhotoURL: req.body.dogPhotoURL,
         dogPhotoURL: cldRes.secure_url,
       },
     });

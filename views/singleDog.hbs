@@ -25,6 +25,12 @@
 </div>
 
 <div>
+  <a href="/request-dog/{{dog.id}}">
+    <button>Request the adoption for this dog</button>
+  </a>
+</div>
+
+<div>
   <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
     <button>Delete</button>
   </form>
@@ -32,6 +38,6 @@
 
 <div>
   <a href="/dog/">
-    <button>Cancel</button>
+    <button>Return and view all dogs</button>
   </a>
 </div>
