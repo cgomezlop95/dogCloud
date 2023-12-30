@@ -8,8 +8,8 @@ const prisma = require("../prisma");
 // Route to update the dog details
 
 router.get("/:id", async (req, res) => {
-  const { id } = req.params;
   try {
+    const { id } = req.params;
     const dogById = await prisma.dog.findUnique({
       where: {
         id,
@@ -26,40 +26,27 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  console.log("entra");
   try {
-    const {
-      dogName,
-      dogAge,
-      dogWeight,
-      dogSex,
-      dogBreed,
-      dogAdopted,
-      suitableForKids,
-      suitableForOtherPets,
-      dogDescription,
-    } = req.body;
-    const isDogAdopted = dogAdopted === "on" ? true : false;
-    const isSuitableForKids = suitableForKids === "on" ? true : false;
-    const isSuitableForOtherPets = suitableForOtherPets === "on" ? true : false;
-    const dogAgeFloat = parseFloat(dogAge);
-    const dogWeightFloat = parseFloat(dogWeight);
+    console.log("testing put");
+    const isDogAdopted = "dogAdopted" in req.body;
+    const isSuitableForKids = "suitableForKids" in req.body;
+    const isSuitableForOtherPets = "suitableForOtherPets" in req.body;
     await prisma.dog.update({
       where: { id: req.params.id },
       data: {
-        dogName,
-        dogAge: dogAgeFloat,
-        dogWeight: dogWeightFloat,
-        dogSex,
-        dogBreed,
+        dogName: req.body.dogName,
+        dogAge: parseFloat(req.body.dogAge),
+        dogWeight: parseFloat(req.body.dogWeight),
+        dogSex: req.body.dogSex,
+        dogBreed: req.body.dogBreed,
         dogAdopted: isDogAdopted,
         suitableForKids: isSuitableForKids,
         suitableForOtherPets: isSuitableForOtherPets,
-        dogDescription,
-        //dogPhotoURL: cldRes.secure_url,
+        dogDescription: req.body.dogDescription,
+        dogPhotoURL: req.body.dogPhotoURL,
       },
     });
-    res.redirect("/dog");
+    res.redirect(`/dog/${req.params.id}`);
   } catch (error) {
     console.error(error);
     res.json("Server error");

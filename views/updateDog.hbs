@@ -3,7 +3,7 @@
 {{! action - Specifies where to send the form-data when a form is submitted }}
 {{! method - Specifies the HTTP method to use when sending form-data }}
 
-<form action="/update-dog/{{dog.id}}?_method=PUT" method="POST"></form>
+<form action="/update-dog/{{dog.id}}?_method=PUT" method="post">
 
   <div>
     <label for="dogName">Dog Name</label>
@@ -12,12 +12,24 @@
 
   <div>
     <label for="dogAge">Dog Age (in years)</label>
-    <input type="number" id="dogAge" name="dogAge" min="0" value="{{dog.dogAge}}" />
+    <input
+      type="number"
+      id="dogAge"
+      name="dogAge"
+      min="0"
+      value="{{dog.dogAge}}"
+    />
   </div>
 
   <div>
     <label for="dogWeight">Dog Weight (in kilos)</label>
-    <input type="number" id="dogWeight" name="dogWeight" min="0" value="{{dog.dogWeight}}" />
+    <input
+      type="number"
+      id="dogWeight"
+      name="dogWeight"
+      min="0"
+      value="{{dog.dogWeight}}"
+    />
   </div>
 
   <div>
@@ -30,17 +42,27 @@
 
   <div>
     <label for="dogBreed">Dog Breed</label>
-    <input type="text" id="dogBreed" name="dogBreed" value="{{dog.dogBreed}}"/>
+    <input type="text" id="dogBreed" name="dogBreed" value="{{dog.dogBreed}}" />
   </div>
 
   <div>
     <label for="dogAdopted">Has the dog been adopted?</label>
-    <input type="checkbox" id="dogAdopted" name="dogAdopted" value="{{dog.dogAdopted}}" />
+    <input
+      type="checkbox"
+      id="dogAdopted"
+      name="dogAdopted"
+      value="{{dog.dogAdopted}}"
+    />
   </div>
 
   <div>
     <label for="suitableForKids">Is this dog suitable for kids?</label>
-    <input type="checkbox" id="suitableForKids" name="suitableForKids" value="{{dog.suitableForKids}}" />
+    <input
+      type="checkbox"
+      id="suitableForKids"
+      name="suitableForKids"
+      value="{{dog.suitableForKids}}"
+    />
   </div>
 
   <div>
