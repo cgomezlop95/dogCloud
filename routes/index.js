@@ -10,7 +10,7 @@ router.get("/", isAuthenticated, function (req, res, next) {
 router.use("/auth", require("./auth"));
 
 router.use("/dog", require("./dog"));
-router.use("/request-dog", require("./adoptionRequest"));
+router.use("/request-dog", isAuthenticated, require("./adoptionRequest"));
 router.use("/create-new-dog", require("./createNewDog"));
 router.use("/update-dog", require("./updateDog"));
 

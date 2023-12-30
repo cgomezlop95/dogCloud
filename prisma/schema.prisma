@@ -44,11 +44,10 @@ model Dog {
 model adoptionRequest {
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
-  requestApproved    Boolean
+  requestApproved    Boolean?
   adopterAge         Int
   hasExperience      Boolean
   dailyHoursAway     Int
-  homeOffice         Boolean
   hasOtherPets       Boolean
   hasKids            Boolean
   hasGarden          Boolean
