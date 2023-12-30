@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
 
-// const upload = require("../config/multer");
-// const handleUpload = require("../middlewares/handleUpload");
+const upload = require("../config/multer");
+const handleUpload = require("../middlewares/handleUpload");
 
 // Route to update the dog details
 
@@ -25,9 +25,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
   try {
-    console.log("testing put");
+    //console.log(req.file);
+    const b64 = Buffer.from(req.file.buffer).toString("base64");
+    let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+    const cldRes = await handleUpload(dataURI);
+
     const isDogAdopted = "dogAdopted" in req.body;
     const isSuitableForKids = "suitableForKids" in req.body;
     const isSuitableForOtherPets = "suitableForOtherPets" in req.body;
@@ -44,6 +48,7 @@ router.put("/:id", async (req, res) => {
         suitableForOtherPets: isSuitableForOtherPets,
         dogDescription: req.body.dogDescription,
         dogPhotoURL: req.body.dogPhotoURL,
+        dogPhotoURL: cldRes.secure_url,
       },
     });
     res.redirect(`/dog/${req.params.id}`);

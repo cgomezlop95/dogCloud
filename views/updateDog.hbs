@@ -3,7 +3,11 @@
 {{! action - Specifies where to send the form-data when a form is submitted }}
 {{! method - Specifies the HTTP method to use when sending form-data }}
 
-<form action="/update-dog/{{dog.id}}?_method=PUT" method="post">
+<form
+  action="/update-dog/{{dog.id}}?_method=PUT"
+  method="post"
+  enctype="multipart/form-data"
+>
 
   <div>
     <label for="dogName">Dog Name</label>
