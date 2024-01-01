@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
-const isAuthenticated = require("../middlewares/isAuthenticated");
+//const isAuthenticated = require("../middlewares/isAuthenticated");
 
-// Route to request the adoption for one dog
+// Route to request the adoption for one dog (view the form and add the request to the DB)
 
 router.get("/:id", async (req, res) => {
   try {

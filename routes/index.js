@@ -13,5 +13,10 @@ router.use("/dog", require("./dog"));
 router.use("/request-dog", isAuthenticated, require("./adoptionRequest"));
 router.use("/create-new-dog", require("./createNewDog"));
 router.use("/update-dog", require("./updateDog"));
+router.use(
+  "/adoption-requests",
+  isAuthenticated,
+  require("./adoptionRequestAdminView")
+);
 
 module.exports = router;

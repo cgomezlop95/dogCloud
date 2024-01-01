@@ -1,0 +1,12 @@
+<h1>Adoption requests (only admins)</h1>
+<div>
+  {{#each adoptionRequests}}
+    <p>
+      {{this.adopterAge}}
+      years -
+      {{this.user.email}}
+      wants to adopt
+      {{this.dog.dogName}}
+    </p>
+  {{/each}}
+</div>
