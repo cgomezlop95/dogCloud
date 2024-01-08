@@ -28,6 +28,11 @@ div ul {
   font-weight: bold;
 }
 
+.singleAdoptionRequest {
+  display: flex;
+  gap: 100px;
+}
+
 nav a {
   margin-right: 20px;
 }

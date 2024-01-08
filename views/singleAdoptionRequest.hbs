@@ -1,0 +1,63 @@
+<h1>Adoption request details</h1>
+
+<div class="singleAdoptionRequest">
+
+  <div class="singleAdoptionRequestChild">
+    <h4>Dog requested</h4>
+    <p>Name: {{adoptionRequest.dog.dogName}}</p>
+    <p>Age: {{adoptionRequest.dog.dogAge}} year(s)</p>
+    <p>Weight: {{adoptionRequest.dog.dogWeight}} kilo(s)</p>
+    <p>Sex: {{adoptionRequest.dog.dogSex}}</p>
+    <p>Breed: {{adoptionRequest.dog.dogBreed}}</p>
+    <p>Suitable for kids: {{adoptionRequest.dog.suitableForKids}}</p>
+    <p>Suitable for other pets: {{adoptionRequest.dog.suitableForOtherPets}}</p>
+    <p>Dog description: {{adoptionRequest.dog.dogDescription}}</p>
+  </div>
+
+  <div class="singleAdoptionRequestChild">
+    {{#if adoptionRequest.dog.dogPhotoURL}}
+      <img
+        src="{{adoptionRequest.dog.dogPhotoURL}}"
+        alt="{{adoptionRequest.dog.dogBreed}}"
+        style="border-radius: 10%; max-width: 100%; max-height: 100%;"
+      />
+    {{/if}}
+  </div>
+
+  <div class="singleAdoptionRequestChild">
+    <h4>Request information</h4>
+    <p>Requester Email: {{user.email}}</p>
+    <p>Requester Age: {{adoptionRequest.adopterAge}} years</p>
+    <p>Has the requester experience on taking care of pets?
+      {{adoptionRequest.hasExperience}}</p>
+    <p>How many hours does the requester spend out of home every day?
+      {{adoptionRequest.dailyHoursAway}}
+      hours</p>
+    <p>Does the requester have a terrace or garden?
+      {{adoptionRequest.hasGarden}}</p>
+    <p>Does the requester have kids? {{adoptionRequest.hasKids}}</p>
+    <p>Does the requester have other pets in the house?
+      {{adoptionRequest.hasOtherPets}}</p>
+    <p>How many people do they live in the house?
+      {{adoptionRequest.numberOfPeople}}
+      people</p>
+    <p>How many trips does the requester do every year?
+      {{adoptionRequest.numberOfTrips}}
+      trips per year</p>
+    <p>Which would be the expected monthly allowance for the dog?
+      {{adoptionRequest.monthlyMoney}}
+      euros per month</p>
+    <p>Requester Description: {{adoptionRequest.adopterDescription}}</p>
+  </div>
+
+</div>
+
+<div>
+  <button>Approve request</button>
+</div>
+
+<div>
+  <a href="/adoption-requests/">
+    <button>Return and view all the adoption requests</button>
+  </a>
+</div>
