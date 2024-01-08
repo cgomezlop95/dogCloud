@@ -53,7 +53,12 @@
 </div>
 
 <div>
-  <button>Approve request</button>
+  <form
+    action="/adoption-requests/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
+    method="post"
+  >
+    <button>Approve request</button>
+  </form>
 </div>
 
 <div>

@@ -3,8 +3,9 @@ const { faker } = require("@faker-js/faker");
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.adoptionRequest.deleteMany({});
   await prisma.Dog.deleteMany({}); // <- Borra nada mas ejecutarse
-  const numberOfDogs = 8;
+  const numberOfDogs = 16;
 
   const dogs = [];
 
