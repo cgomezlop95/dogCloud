@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
-//const isAuthenticated = require("../middlewares/isAuthenticated");
+const transporter = require("../config/nodemailer");
 
 // Route to request the adoption for one dog (view the form and add the request to the DB)
 
@@ -37,7 +37,7 @@ router.post("/:id", async (req, res) => {
     const ifKids = "hasKids" in req.body;
     const ifGarden = "hasGarden" in req.body;
     //console.log(req.user);
-    await prisma.adoptionRequest.create({
+    const newRequest = await prisma.adoptionRequest.create({
       data: {
         requestApproved: isRequestApproved,
         adopterAge: parseFloat(req.body.adopterAge),
@@ -54,6 +54,25 @@ router.post("/:id", async (req, res) => {
         dogId: dogById.id,
       },
     });
+
+    let mailOptions = {
+      from: "tuemail@gmail.com",
+      to: "c.gomezlop95@gmail.com",
+      subject: "New adoption request",
+      html: `
+    <p>Dear admin,</p>
+    <p>A new adoption request has been submitted.</p>
+    <p>Please click <a href="https://doggyrescue.onrender.com/auth/login-page">here</a> to login.</p>
+  `,
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Correo enviado: " + info.response);
+      }
+    });
+
     res.redirect("/dog");
   } catch (error) {
     console.error(error);
