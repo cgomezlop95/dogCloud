@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const passport = require("passport");
 const prisma = require("../prisma");
+const transporter = require("../config/nodemailer");
 
 /**
  * @swagger
@@ -43,6 +44,25 @@ router.post("/register", async (req, res) => {
         password: hashedPassword,
       },
     });
+
+    let mailOptions = {
+      from: "tuemail@gmail.com",
+      to: "c.gomezlop95@gmail.com",
+      subject: "Welcome to DoggyRescue",
+      html: `
+    <p>Welcome to DoggyRescue!</p>
+    <p>Your account has been created with the email ${newUser.email}.</p>
+    <p>Please click <a href="https://doggyrescue.onrender.com/auth/login-page">here</a> to login.</p>
+  `,
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Correo enviado: " + info.response);
+      }
+    });
+
     res.redirect("/auth/login-page");
   } catch (error) {
     console.log(error);

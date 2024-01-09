@@ -20,8 +20,6 @@ model User {
   adoptionRequests adoptionRequest[]
 }
 
-//Cris: Añado un modelo Dog y otro modelo adoptionRequest
-
 model Dog {
   id                   String            @id @default(uuid())
   createdAt            DateTime          @default(now())
@@ -38,8 +36,6 @@ model Dog {
   dogPhotoURL          String?
   adoptionRequests     adoptionRequest[]
 }
-
-//Cris: Esta es la tercera tabla para mis relaciones M:M
 
 model adoptionRequest {
   createdAt          DateTime @default(now())

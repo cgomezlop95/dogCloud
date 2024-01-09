@@ -1,9 +1,11 @@
 <nav>
+  {{#if user.isAdmin}}
+    <a href="/adoption-requests">*Adoption requests*</a>
+    <a href="/create-new-dog">*Add a new dog*</a>
+  {{/if}}
   <a href="/">My Profile</a>
   <a href="/my-adoption-requests">My adoption requests</a>
   <a href="/dog">Dogs ready to be adopted</a>
-  <a href="/adoption-requests">*Adoption requests*</a>
-  <a href="/create-new-dog">*Add a new dog*</a>
   <a href="/about-us">About Us</a>
   <a href="/donate">Donate</a>
   <a href="/volunteer">Volunteer</a>

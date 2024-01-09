@@ -85,28 +85,16 @@ router.put("/:id", async (req, res) => {
           dogId: dogId,
         },
       },
-      include: {
-        user: {
-          select: {
-            email: true,
-          },
-        },
-        dog: {
-          select: {
-            dogName: true,
-            dogAge: true,
-            dogWeight: true,
-            dogSex: true,
-            dogBreed: true,
-            suitableForKids: true,
-            suitableForOtherPets: true,
-            dogDescription: true,
-            dogPhotoURL: true,
-          },
-        },
-      },
       data: {
         requestApproved: true,
+      },
+    });
+    await prisma.dog.update({
+      where: {
+        id: dogId,
+      },
+      data: {
+        dogAdopted: true,
       },
     });
     res.redirect("/dog/");
