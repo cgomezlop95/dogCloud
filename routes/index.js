@@ -9,7 +9,7 @@ router.get("/", isAuthenticated, function (req, res, next) {
 });
 
 router.use("/auth", require("./auth"));
-
+router.use("/about-us", require("./about"));
 router.use("/dog", require("./dog"));
 router.use("/request-dog", isAuthenticated, require("./adoptionRequest"));
 router.use(

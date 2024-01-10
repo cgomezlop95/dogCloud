@@ -1,15 +1,23 @@
 <nav>
+
+  {{! Permanent tabs }}
+  <a href="/dog">Dogs ready to be adopted</a>
+  <a href="/about-us">About us</a>
+
+  {{! Only the admin users will see these 2 options}}
   {{#if user.isAdmin}}
     <a href="/adoption-requests">*Adoption requests*</a>
     <a href="/create-new-dog">*Add a new dog*</a>
   {{/if}}
-  <a href="/">My Profile</a>
-  <a href="/my-adoption-requests">My adoption requests</a>
-  <a href="/dog">Dogs ready to be adopted</a>
-  <a href="/about-us">About Us</a>
-  <a href="/donate">Donate</a>
-  <a href="/volunteer">Volunteer</a>
-  <a href="/auth/register-page">Sign up</a>
-  <a href="/auth/login-page">Login</a>
-  <a href="/auth/logout">Logout</a>
+
+  {{! Depending if there is a user logged in or not }}
+  {{#if user}}
+    <a href="/">My profile</a>
+    <a href="/my-adoption-requests">My adoption requests</a>
+    <a href="/auth/logout">Logout</a>
+  {{else}}
+    <a href="/auth/register-page">Sign up</a>
+    <a href="/auth/login-page">Login</a>
+  {{/if}}
+
 </nav>

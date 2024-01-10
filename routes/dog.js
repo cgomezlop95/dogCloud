@@ -44,7 +44,9 @@ router.delete("/delete/:id", async (req, res) => {
     res.redirect("/dog");
   } catch (error) {
     console.error(error);
-    res.json("Server error");
+    res.json(
+      "Server error. Check if there is an adoption request linked to this dog"
+    );
   }
 });
 

@@ -24,45 +24,57 @@
     {{/if}}
   </div>
 
-  <div class="singleAdoptionRequestChild">
-    <h4>Request information</h4>
-    <p>Requester Email: {{user.email}}</p>
-    <p>Requester Age: {{adoptionRequest.adopterAge}} years</p>
-    <p>Has the requester experience on taking care of pets?
-      {{adoptionRequest.hasExperience}}</p>
-    <p>How many hours does the requester spend out of home every day?
-      {{adoptionRequest.dailyHoursAway}}
-      hours</p>
-    <p>Does the requester have a terrace or garden?
-      {{adoptionRequest.hasGarden}}</p>
-    <p>Does the requester have kids? {{adoptionRequest.hasKids}}</p>
-    <p>Does the requester have other pets in the house?
-      {{adoptionRequest.hasOtherPets}}</p>
-    <p>How many people do they live in the house?
-      {{adoptionRequest.numberOfPeople}}
-      people</p>
-    <p>How many trips does the requester do every year?
-      {{adoptionRequest.numberOfTrips}}
-      trips per year</p>
-    <p>Which would be the expected monthly allowance for the dog?
-      {{adoptionRequest.monthlyMoney}}
-      euros per month</p>
-    <p>Requester Description: {{adoptionRequest.adopterDescription}}</p>
+  {{#if user.isAdmin}}
+    <div class="singleAdoptionRequestChild">
+      <h4>Request information</h4>
+      <p>Requester Email: {{user.email}}</p>
+      <p>Requester Age: {{adoptionRequest.adopterAge}} years</p>
+      <p>Has the requester experience on taking care of pets?
+        {{adoptionRequest.hasExperience}}</p>
+      <p>How many hours does the requester spend out of home every day?
+        {{adoptionRequest.dailyHoursAway}}
+        hours</p>
+      <p>Does the requester have a terrace or garden?
+        {{adoptionRequest.hasGarden}}</p>
+      <p>Does the requester have kids? {{adoptionRequest.hasKids}}</p>
+      <p>Does the requester have other pets in the house?
+        {{adoptionRequest.hasOtherPets}}</p>
+      <p>How many people do they live in the house?
+        {{adoptionRequest.numberOfPeople}}
+        people</p>
+      <p>How many trips does the requester do every year?
+        {{adoptionRequest.numberOfTrips}}
+        trips per year</p>
+      <p>Which would be the expected monthly allowance for the dog?
+        {{adoptionRequest.monthlyMoney}}
+        euros per month</p>
+      <p>Requester Description: {{adoptionRequest.adopterDescription}}</p>
+    </div>
+  {{/if}}
+
+</div>
+
+{{#if user.isAdmin}}
+  <div>
+    <form
+      action="/adoption-requests/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
+      method="post"
+    >
+      <button>Approve request</button>
+    </form>
   </div>
 
-</div>
+  <div>
+    <a href="/adoption-requests/">
+      <button>Return and view all the adoption requests</button>
+    </a>
+  </div>
 
-<div>
-  <form
-    action="/adoption-requests/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
-    method="post"
-  >
-    <button>Approve request</button>
-  </form>
-</div>
+{{else}}
+  <div>
+    <a href="/my-adoption-requests/">
+      <button>Return and view all your adoption requests</button>
+    </a>
+  </div>
 
-<div>
-  <a href="/adoption-requests/">
-    <button>Return and view all the adoption requests</button>
-  </a>
-</div>
+{{/if}}

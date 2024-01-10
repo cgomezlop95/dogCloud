@@ -18,22 +18,24 @@
   {{/if}}
 </div>
 
-<div>
-  <a href="/update-dog/{{dog.id}}">
-    <button>Update dog details</button>
-  </a>
-</div>
+{{#if user.isAdmin}}
+  <div>
+    <a href="/update-dog/{{dog.id}}">
+      <button>Update dog details</button>
+    </a>
+  </div>
+
+  <div>
+    <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
+      <button>Delete</button>
+    </form>
+  </div>
+{{/if}}
 
 <div>
   <a href="/request-dog/{{dog.id}}">
     <button>Request the adoption for this dog</button>
   </a>
-</div>
-
-<div>
-  <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
-    <button>Delete</button>
-  </form>
 </div>
 
 <div>

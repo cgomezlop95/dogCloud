@@ -45,6 +45,7 @@ router.get("/:id", async (req, res) => {
         user: {
           select: {
             email: true,
+            isAdmin: true,
           },
         },
         dog: {

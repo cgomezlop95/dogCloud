@@ -9,7 +9,7 @@ const handleUpload = require("../middlewares/handleUpload");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("createNewDog");
+    res.render("createNewDog", { user: req.user });
   } catch (error) {
     console.error(error);
     res.json("Server error");
