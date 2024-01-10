@@ -6,6 +6,7 @@ const logger = require("morgan");
 const flash = require("connect-flash");
 const { create } = require("express-handlebars");
 const session = require("express-session");
+const pgSession = require("connect-pg-simple")(session);
 const methodOverride = require("method-override");
 const passport = require("passport");
 
@@ -21,6 +22,8 @@ const hbs = create({
 
 require("dotenv").config();
 
+const pgPool = require("./config/pg-session");
+
 const indexRouter = require("./routes/index");
 
 const app = express();
@@ -30,6 +33,12 @@ app.use(
     secret: process.env.SESSION_SECRET || "SECRET",
     resave: false,
     saveUninitialized: false,
+    //Added for pgSession functionality
+    store: new pgSession({
+      pool: pgPool,
+      tableName: "UserSession",
+    }),
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
   })
 );
 
