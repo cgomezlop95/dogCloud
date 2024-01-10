@@ -73,9 +73,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Route for the admin to delete one request
+
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [userId, dogId] = id.split("_"); // Assuming the format is userId_dogId
+    await prisma.adoptionRequest.delete({
+      where: {
+        userId_dogId: {
+          userId,
+          dogId,
+        },
+      },
+    });
+    res.redirect("/adoption-requests");
+  } catch (error) {
+    console.error(error);
+    res.json("Server error");
+  }
+});
+
 //Route for the admin to approve the request
 
-router.put("/:id", async (req, res) => {
+router.put("/approve/:id", async (req, res) => {
   const { id } = req.params;
   const [userId, dogId] = id.split("_"); // Assuming the format is userId_dogId
   try {

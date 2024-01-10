@@ -57,10 +57,19 @@
 {{#if user.isAdmin}}
   <div>
     <form
-      action="/adoption-requests/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
+      action="/adoption-requests/approve/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
       method="post"
     >
       <button>Approve request</button>
+    </form>
+  </div>
+
+  <div>
+    <form
+      action="/adoption-requests/delete/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=DELETE"
+      method="post"
+    >
+      <button>Deny and delete the request</button>
     </form>
   </div>
 
