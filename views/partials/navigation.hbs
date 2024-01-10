@@ -1,14 +1,8 @@
 <nav>
-
+  <p>Welcome to Doggy Rescue</p>
   {{! Permanent tabs }}
   <a href="/dog">Dogs ready to be adopted</a>
   <a href="/about-us">About us</a>
-
-  {{! Only the admin users will see these 2 options}}
-  {{#if user.isAdmin}}
-    <a href="/adoption-requests">*Adoption requests*</a>
-    <a href="/create-new-dog">*Add a new dog*</a>
-  {{/if}}
 
   {{! Depending if there is a user logged in or not }}
   {{#if user}}
@@ -20,4 +14,13 @@
     <a href="/auth/login-page">Login</a>
   {{/if}}
 
+</nav>
+
+<nav>
+  {{! Only the admin users will see these 2 options}}
+  {{#if user.isAdmin}}
+    <p>Admin section</p>
+    <a href="/adoption-requests">*Adoption requests*</a>
+    <a href="/create-new-dog">*Add a new dog*</a>
+  {{/if}}
 </nav>

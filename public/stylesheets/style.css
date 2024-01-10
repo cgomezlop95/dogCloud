@@ -33,6 +33,10 @@ div ul {
   gap: 100px;
 }
 
+nav {
+  margin-bottom: 20px;
+}
+
 nav a {
   margin-right: 20px;
 }
