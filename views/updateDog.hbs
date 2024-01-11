@@ -21,6 +21,7 @@
       id="dogAge"
       name="dogAge"
       min="0"
+      step="0.1"
       value="{{dog.dogAge}}"
     />
   </div>
@@ -32,6 +33,7 @@
       id="dogWeight"
       name="dogWeight"
       min="0"
+      step="0.1"
       value="{{dog.dogWeight}}"
     />
   </div>
@@ -39,8 +41,8 @@
   <div>
     <label for="dogSex">Dog Sex</label>
     <select id="dogSex" name="dogSex">
-      <option value="female">Female</option>
       <option value="male">Male</option>
+      <option value="female">Female</option>
     </select>
   </div>
 
@@ -49,35 +51,39 @@
     <input type="text" id="dogBreed" name="dogBreed" value="{{dog.dogBreed}}" />
   </div>
 
+  {{! checked - he checked attribute is used with checkboxes and radio buttons 
+  to indicate whether the input should initially appear selected or checked }}
+
   <div>
     <label for="dogAdopted">Has the dog been adopted?</label>
     <input
-      type="checkbox"
-      id="dogAdopted"
-      name="dogAdopted"
-      value="{{dog.dogAdopted}}"
+    type="checkbox"
+    id="dogAdopted"
+    name="dogAdopted"
+    {{#if dog.dogAdopted}}checked{{/if}}
     />
   </div>
 
   <div>
     <label for="suitableForKids">Is this dog suitable for kids?</label>
     <input
-      type="checkbox"
-      id="suitableForKids"
-      name="suitableForKids"
-      value="{{dog.suitableForKids}}"
+    type="checkbox"
+    id="suitableForKids"
+    name="suitableForKids"
+    {{#if dog.suitableForKids}}checked{{/if}}
     />
   </div>
 
   <div>
     <label for="suitableForOtherPets">Is this dog suitable for other pets?</label>
     <input
-      type="checkbox"
-      id="suitableForOtherPets"
-      name="suitableForOtherPets"
-      value="{{dog.suitableForOtherPets}}"
-    />
+    type="checkbox"
+    id="suitableForOtherPets"
+    name="suitableForOtherPets"
+    {{#if dog.suitableForOtherPets}}checked{{/if}}
+  / >
   </div>
+
 
   <div>
     <label for="dogDescription">Dog Description</label>
@@ -86,9 +92,7 @@
       name="dogDescription"
       cols="70"
       rows="5"
-      placeholder="How is the dog?"
-      value="{{dog.dogDescription}}"
-    ></textarea>
+    >{{dog.dogDescription}}</textarea>
   </div>
 
   <div>

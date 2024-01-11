@@ -1,7 +1,8 @@
 <nav>
   <p>Welcome to Doggy Rescue</p>
   {{! Permanent tabs }}
-  <a href="/dog">Dogs ready to be adopted</a>
+  <a href="/dog/pending">Dogs ready to be adopted</a>
+  <a href="/dog/adopted">Adopted dogs</a>
   <a href="/about-us">About us</a>
 
   {{! Depending if there is a user logged in or not }}
@@ -20,7 +21,8 @@
   {{! Only the admin users will see these 2 options}}
   {{#if user.isAdmin}}
     <p>Admin section</p>
-    <a href="/adoption-requests">*Adoption requests*</a>
+    <a href="/adoption-requests/approved">*Adoption requests: approved*</a>
+    <a href="/adoption-requests/pending">*Adoption requests: pending*</a>
     <a href="/create-new-dog">*Add a new dog*</a>
   {{/if}}
 </nav>

@@ -35,7 +35,7 @@ router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
       const cldRes = await handleUpload(dataURI);
       dogPhotoURL = cldRes.secure_url;
     }
-    
+
     const isDogAdopted = "dogAdopted" in req.body;
     const isSuitableForKids = "suitableForKids" in req.body;
     const isSuitableForOtherPets = "suitableForOtherPets" in req.body;

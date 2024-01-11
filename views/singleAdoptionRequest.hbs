@@ -55,29 +55,31 @@
 </div>
 
 {{#if user.isAdmin}}
-  <div>
-    <form
-      action="/adoption-requests/approve/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
-      method="post"
-    >
-      <button>Approve request</button>
-    </form>
-  </div>
+  {{#unless adoptionRequest.requestApproved}}
+    <div>
+      <form
+        action="/adoption-requests/approve/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
+        method="post"
+      >
+        <button>Approve request</button>
+      </form>
+    </div>
 
-  <div>
-    <form
-      action="/adoption-requests/delete/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=DELETE"
-      method="post"
-    >
-      <button>Deny and delete the request</button>
-    </form>
-  </div>
+    <div>
+      <form
+        action="/adoption-requests/delete/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=DELETE"
+        method="post"
+      >
+        <button>Deny and delete the request</button>
+      </form>
+    </div>
 
-  <div>
-    <a href="/adoption-requests/">
-      <button>Return and view all the adoption requests</button>
-    </a>
-  </div>
+    <div>
+      <a href="/adoption-requests/pending">
+        <button>Return and view all the pending adoption requests</button>
+      </a>
+    </div>
+  {{/unless}}
 
 {{else}}
   <div>

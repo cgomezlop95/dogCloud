@@ -11,12 +11,12 @@ async function main() {
 
   for (i = 0; i < numberOfDogs; i++) {
     //const authorsId = [
-      //"844bf92e-a0c6-4e8d-96c1-ade38f976d29",
+    //"844bf92e-a0c6-4e8d-96c1-ade38f976d29",
     //];
     //const randomId = Math.floor(Math.random() * authorsId.length);
     const dog = {
       dogName: faker.person.firstName(),
-      dogAge: faker.number.int({ min: 0, max: 20 }),
+      dogAge: faker.number.int({ min: 0, max: 20, precision: 0.1 }),
       dogWeight: faker.number.float({ min: 0, precision: 0.1 }),
       dogSex: faker.person.sex(),
       dogBreed: faker.animal.dog(),

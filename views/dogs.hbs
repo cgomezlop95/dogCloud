@@ -1,4 +1,4 @@
-<h1>Dogs in adoption</h1>
+<h1>Our dogs</h1>
 <div id="dogsList">
   <ul>
     {{#each dogs}}
@@ -16,7 +16,9 @@
           -
           {{this.dogAge}}
           year(s)
-        </a>
+        </a><br />
+        Dog Adopted:
+        {{this.dogAdopted}}
       </li>
     {{/each}}
   </ul>

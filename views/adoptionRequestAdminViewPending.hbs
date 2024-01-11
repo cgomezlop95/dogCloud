@@ -1,0 +1,16 @@
+<h1>Adoption requests (only admins)</h1>
+<h2>Pending admin review</h2>
+<div>
+  {{#each adoptionRequests}}
+    {{#unless this.requestApproved}}
+      <a href="/adoption-requests/{{this.userId}}_{{this.dogId}}">
+        {{this.adopterAge}}
+        years -
+        {{this.user.email}}
+        wants to adopt
+        {{this.dog.dogName}}
+      </a>
+      <br />
+    {{/unless}}
+  {{/each}}
+</div>
