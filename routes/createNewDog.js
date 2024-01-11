@@ -57,7 +57,7 @@ router.post("/", upload.single("dogPhotoURL"), async (req, res) => {
         dogPhotoURL: dogPhotoURL,
       },
     });
-    res.redirect("/dog");
+    res.redirect("/dog/pending");
   } catch (error) {
     console.error(error);
     res.json("Server error");
