@@ -6,16 +6,19 @@ Briefly describe what your project does. Include any important information about
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- View the dogs in adoption
+- View the dogs which were adopted
+- Request the adoption for one dog and email the request to the admin 
+- View the user profile with the adoption requests
+- Create a new dog and add it to the data base (only for admins)
+- Update the dog details (only for admins)
 
 ## Installation
 
 Provide step-by-step instructions on how to get a development environment running.
 
 ```bash
-git clone https://your-repository-link.git
+git clone https://github.com/cgomezlop95/doggyRescue
 cd your-project-name
 npm install
 ```
@@ -40,21 +43,9 @@ Describe how to run the automated tests for this system.
 npm test
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system, if applicable.
-
-## Contributing
-
-State if you are open to contributions and how interested contributors can get started. Include a link to your `CONTRIBUTING.md` file if you have one.
-
-## Versioning
-
-If you use versioning, explain how it works.
-
 ## Authors
 
-- **Your Name** - _Initial work_ - [YourUsername](https://github.com/YourUsername)
+- **Cristina Gómez** - [cgomezlop95/](https://github.com/cgomezlop95/)
 
 ## License
 
@@ -69,8 +60,7 @@ This project is licensed under the XYZ License - see the [LICENSE.md](LICENSE.md
 
 ### Notes:
 
-- **Project Name**: Replace with the name of your project.
-- **Repository Link**: Provide the link to your project's repository.
-- **Your Project Name**: Replace with the actual name of your project's directory.
-- **Your Name and YourUsername**: Replace with your actual name and GitHub username.
+- **DoggyRescue**: Replace with the name of your project.
+- **https://github.com/cgomezlop95/doggyRescue**: Provide the link to your project's repository.
+- **Cristina Gómez**: Replace with your actual name and GitHub username.
 - **License**: If your project doesn't have a license yet, you might want to choose one. Open-source licenses like MIT, GPL, or Apache are popular choices.
