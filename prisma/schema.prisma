@@ -45,6 +45,7 @@ model adoptionRequest {
   hasExperience      Boolean
   dailyHoursAway     Int
   hasOtherPets       Boolean
+  OtherPets          String?
   hasKids            Boolean
   hasGarden          Boolean
   numberOfTrips      Int

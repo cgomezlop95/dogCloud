@@ -61,7 +61,7 @@ router.delete("/delete/:id", async (req, res) => {
     await prisma.dog.delete({
       where: { id: req.params.id },
     });
-    res.redirect("/dog");
+    res.redirect("/dog/pending");
   } catch (error) {
     console.error(error);
     res.json(

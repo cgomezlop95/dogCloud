@@ -36,7 +36,6 @@ router.post("/:id", async (req, res) => {
     const ifOtherPets = "hasOtherPets" in req.body;
     const ifKids = "hasKids" in req.body;
     const ifGarden = "hasGarden" in req.body;
-    //console.log(req.user);
     const newRequest = await prisma.adoptionRequest.create({
       data: {
         requestApproved: isRequestApproved,
@@ -44,6 +43,7 @@ router.post("/:id", async (req, res) => {
         hasExperience: ifExperience,
         dailyHoursAway: parseFloat(req.body.dailyHoursAway),
         hasOtherPets: ifOtherPets,
+        OtherPets: req.body.OtherPets,
         hasKids: ifKids,
         hasGarden: ifGarden,
         numberOfTrips: parseFloat(req.body.numberOfTrips),
@@ -73,10 +73,12 @@ router.post("/:id", async (req, res) => {
       }
     });
 
-    res.redirect("/dog");
+    res.redirect("/my-adoption-requests");
   } catch (error) {
     console.error(error);
-    res.json("Server error");
+    res.json(
+      "Server error. Check if you have already submitted an application for this dog."
+    );
   }
 });
 
