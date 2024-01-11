@@ -27,10 +27,15 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
   try {
-    const b64 = Buffer.from(req.file.buffer).toString("base64");
-    let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-    const cldRes = await handleUpload(dataURI);
-
+    let dogPhotoURL;
+    // Check if a file has been uploaded, this avoids an error in case I do not upload a new pic
+    if (req.file) {
+      const b64 = Buffer.from(req.file.buffer).toString("base64");
+      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+      const cldRes = await handleUpload(dataURI);
+      dogPhotoURL = cldRes.secure_url;
+    }
+    
     const isDogAdopted = "dogAdopted" in req.body;
     const isSuitableForKids = "suitableForKids" in req.body;
     const isSuitableForOtherPets = "suitableForOtherPets" in req.body;
@@ -46,7 +51,7 @@ router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
         suitableForKids: isSuitableForKids,
         suitableForOtherPets: isSuitableForOtherPets,
         dogDescription: req.body.dogDescription,
-        dogPhotoURL: cldRes.secure_url,
+        dogPhotoURL: dogPhotoURL,
       },
     });
     res.redirect(`/dog/${req.params.id}`);
