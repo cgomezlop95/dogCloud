@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,9 +9,10 @@ a {
 
 div ul {
   display: flex;
-  flex-wrap: wrap;
-  margin: 55px;
-  justify-content: center;
+  flex-direction: row; /* Elementos en fila (valor predeterminado) */
+  flex-wrap: wrap; /* Los elementos flexibles se envuelven en varias líneas según sea necesario de arriba hacia abajo */
+  margin: 25px;
+  justify-content: space-around; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
   list-style-type: none; /* This is to avoid the bullet points */
   text-align: center;
 }
@@ -26,6 +27,7 @@ div ul {
 
 .singleDog:hover {
   font-weight: bold;
+  border: 1px black solid;
 }
 
 .singleAdoptionRequest {

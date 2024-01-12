@@ -5,6 +5,24 @@ const transporter = require("../config/nodemailer");
 
 // Route to request the adoption for one dog (view the form and add the request to the DB)
 
+/**
+ * @swagger
+ * /adoption-request/{id}:
+ *   get:
+ *     summary: Adoption Request Form
+ *     description: Renders the adoption request form for a specific dog.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog for adoption.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Returns the adoption request form for the specified dog.
+ */
+
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -22,6 +40,57 @@ router.get("/:id", async (req, res) => {
     res.json("Server error");
   }
 });
+
+/**
+ * @swagger
+ * /adoption-request/{id}:
+ *   post:
+ *     summary: Submit Adoption Request
+ *     description: Submits an adoption request for a specific dog.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog for adoption.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               requestApproved:
+ *                 type: boolean
+ *               adopterAge:
+ *                 type: number
+ *               hasExperience:
+ *                 type: boolean
+ *               dailyHoursAway:
+ *                 type: number
+ *               hasOtherPets:
+ *                 type: boolean
+ *               OtherPets:
+ *                 type: string
+ *               hasKids:
+ *                 type: boolean
+ *               hasGarden:
+ *                 type: boolean
+ *               numberOfTrips:
+ *                 type: number
+ *               monthlyMoney:
+ *                 type: number
+ *               numberOfPeople:
+ *                 type: number
+ *               adopterDescription:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Adoption request submitted successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.post("/:id", async (req, res) => {
   try {
@@ -69,7 +138,7 @@ router.post("/:id", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        console.log("Correo enviado: " + info.response);
+        console.log("Email sent: " + info.response);
       }
     });
 

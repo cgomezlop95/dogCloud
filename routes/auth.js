@@ -59,7 +59,7 @@ router.post("/register", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        console.log("Correo enviado: " + info.response);
+        console.log("Email sent: " + info.response);
       }
     });
 
@@ -135,7 +135,18 @@ router.get("/register-page", (req, res) => {
   res.render("register", { error: req.flash("error") });
 });
 
-//Cris: Added logout
+/**
+ * @swagger
+ * /logout:
+ *   get:
+ *     summary: Logout
+ *     description: Logs out the user and redirects to the home page.
+ *     responses:
+ *       302:
+ *         description: Redirects to the home page after logout.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.get("/logout", (req, res) => {
   req.logout(function (err) {

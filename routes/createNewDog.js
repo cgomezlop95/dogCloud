@@ -7,6 +7,17 @@ const handleUpload = require("../middlewares/handleUpload");
 
 //Route to create and add a new dog to the data base
 
+/**
+ * @swagger
+ * /create-new-dog:
+ *   get:
+ *     summary: Create New Dog Form
+ *     description: Renders the form for creating a new dog.
+ *     responses:
+ *       200:
+ *         description: Returns the create new dog form.
+ */
+
 router.get("/", async (req, res) => {
   try {
     res.render("createNewDog", { user: req.user });
@@ -15,6 +26,47 @@ router.get("/", async (req, res) => {
     res.json("Server error");
   }
 });
+
+/**
+ * @swagger
+ * /create-new-dog:
+ *   post:
+ *     summary: Create and Add a New Dog
+ *     description: Creates and adds a new dog to the database.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               dogPhotoURL:
+ *                 type: string
+ *                 format: binary
+ *               dogName:
+ *                 type: string
+ *               dogAge:
+ *                 type: string
+ *               dogWeight:
+ *                 type: string
+ *               dogSex:
+ *                 type: string
+ *               dogBreed:
+ *                 type: string
+ *               dogAdopted:
+ *                 type: string
+ *               suitableForKids:
+ *                 type: string
+ *               suitableForOtherPets:
+ *                 type: string
+ *               dogDescription:
+ *                 type: string
+ *     responses:
+ *       302:
+ *         description: Dog created and added successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.post("/", upload.single("dogPhotoURL"), async (req, res) => {
   try {

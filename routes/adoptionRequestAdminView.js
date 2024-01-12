@@ -4,6 +4,66 @@ const prisma = require("../prisma");
 
 //To view all the approved requests
 
+/**
+ * @swagger
+ * /adoption-requests/approved:
+ *   get:
+ *     summary: View Approved Adoption Requests
+ *     description: Retrieves a list of all approved adoption requests.
+ *     responses:
+ *       200:
+ *         description: Returns a list of approved adoption requests.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   requestApproved:
+ *                     type: boolean
+ *                   adopterAge:
+ *                     type: number
+ *                   hasExperience:
+ *                     type: boolean
+ *                   dailyHoursAway:
+ *                     type: number
+ *                   hasOtherPets:
+ *                     type: boolean
+ *                   OtherPets:
+ *                     type: string
+ *                   hasKids:
+ *                     type: boolean
+ *                   hasGarden:
+ *                     type: boolean
+ *                   numberOfTrips:
+ *                     type: number
+ *                   monthlyMoney:
+ *                     type: number
+ *                   numberOfPeople:
+ *                     type: number
+ *                   adopterDescription:
+ *                     type: string
+ *                   userId:
+ *                     type: string
+ *                   dogId:
+ *                     type: string
+ *                   user:
+ *                     type: object
+ *                     properties:
+ *                       email:
+ *                         type: string
+ *                   dog:
+ *                     type: object
+ *                     properties:
+ *                       dogName:
+ *                         type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.get("/approved", async (req, res) => {
   try {
     const adoptionRequestList = await prisma.adoptionRequest.findMany({
@@ -32,6 +92,66 @@ router.get("/approved", async (req, res) => {
 
 //To view all the pending approvals
 
+/**
+ * @swagger
+ * /adoption-requests/pending:
+ *   get:
+ *     summary: View Pending Adoption Approvals
+ *     description: Retrieves a list of all adoption requests pending approval.
+ *     responses:
+ *       200:
+ *         description: Returns a list of adoption requests pending approval.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   requestApproved:
+ *                     type: boolean
+ *                   adopterAge:
+ *                     type: number
+ *                   hasExperience:
+ *                     type: boolean
+ *                   dailyHoursAway:
+ *                     type: number
+ *                   hasOtherPets:
+ *                     type: boolean
+ *                   OtherPets:
+ *                     type: string
+ *                   hasKids:
+ *                     type: boolean
+ *                   hasGarden:
+ *                     type: boolean
+ *                   numberOfTrips:
+ *                     type: number
+ *                   monthlyMoney:
+ *                     type: number
+ *                   numberOfPeople:
+ *                     type: number
+ *                   adopterDescription:
+ *                     type: string
+ *                   userId:
+ *                     type: string
+ *                   dogId:
+ *                     type: string
+ *                   user:
+ *                     type: object
+ *                     properties:
+ *                       email:
+ *                         type: string
+ *                   dog:
+ *                     type: object
+ *                     properties:
+ *                       dogName:
+ *                         type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.get("/pending", async (req, res) => {
   try {
     const adoptionRequestList = await prisma.adoptionRequest.findMany({
@@ -59,6 +179,89 @@ router.get("/pending", async (req, res) => {
 });
 
 //Route to view only one adoption request
+
+/**
+ * @swagger
+ * /adoption-request/{id}:
+ *   get:
+ *     summary: View Single Adoption Request
+ *     description: Retrieves information about a specific adoption request.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the adoption request (userId_dogId).
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Returns information about the specified adoption request.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                 requestApproved:
+ *                   type: boolean
+ *                 adopterAge:
+ *                   type: number
+ *                 hasExperience:
+ *                   type: boolean
+ *                 dailyHoursAway:
+ *                   type: number
+ *                 hasOtherPets:
+ *                   type: boolean
+ *                 OtherPets:
+ *                   type: string
+ *                 hasKids:
+ *                   type: boolean
+ *                 hasGarden:
+ *                   type: boolean
+ *                 numberOfTrips:
+ *                   type: number
+ *                 monthlyMoney:
+ *                   type: number
+ *                 numberOfPeople:
+ *                   type: number
+ *                 adopterDescription:
+ *                   type: string
+ *                 userId:
+ *                   type: string
+ *                 dogId:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     email:
+ *                       type: string
+ *                     isAdmin:
+ *                       type: boolean
+ *                 dog:
+ *                   type: object
+ *                   properties:
+ *                     dogName:
+ *                       type: string
+ *                     dogAge:
+ *                       type: number
+ *                     dogWeight:
+ *                       type: number
+ *                     dogSex:
+ *                       type: string
+ *                     dogBreed:
+ *                       type: string
+ *                     suitableForKids:
+ *                       type: boolean
+ *                     suitableForOtherPets:
+ *                       type: boolean
+ *                     dogDescription:
+ *                       type: string
+ *                     dogPhotoURL:
+ *                       type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -105,6 +308,26 @@ router.get("/:id", async (req, res) => {
 
 //Route for the admin to delete one request
 
+/**
+ * @swagger
+ * /adoption-request/delete/{id}:
+ *   delete:
+ *     summary: Delete Adoption Request
+ *     description: Deletes a specific adoption request.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the adoption request (userId_dogId).
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Adoption request deleted successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.delete("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -125,6 +348,26 @@ router.delete("/delete/:id", async (req, res) => {
 });
 
 //Route for the admin to approve the request
+
+/**
+ * @swagger
+ * /adoption-request/approve/{id}:
+ *   put:
+ *     summary: Approve Adoption Request
+ *     description: Approves a specific adoption request and marks the dog as adopted.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the adoption request (userId_dogId).
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Adoption request approved successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.put("/approve/:id", async (req, res) => {
   const { id } = req.params;

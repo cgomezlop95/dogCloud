@@ -7,6 +7,51 @@ const handleUpload = require("../middlewares/handleUpload");
 
 // Route to update the dog details
 
+/**
+ * @swagger
+ * /update-dog/{id}:
+ *   get:
+ *     summary: Update Dog Details Form
+ *     description: Renders the form for updating details of a specific dog.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Returns the update dog details form.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                 dogName:
+ *                   type: string
+ *                 dogAge:
+ *                   type: number
+ *                 dogWeight:
+ *                   type: number
+ *                 dogSex:
+ *                   type: string
+ *                 dogBreed:
+ *                   type: string
+ *                 suitableForKids:
+ *                   type: boolean
+ *                 suitableForOtherPets:
+ *                   type: boolean
+ *                 dogDescription:
+ *                   type: string
+ *                 dogPhotoURL:
+ *                   type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -24,6 +69,56 @@ router.get("/:id", async (req, res) => {
     res.json("Server error");
   }
 });
+
+/**
+ * @swagger
+ * /update-dog/{id}:
+ *   put:
+ *     summary: Update Dog Details
+ *     description: Updates details of a specific dog in the database.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               dogName:
+ *                 type: string
+ *               dogAge:
+ *                 type: number
+ *               dogWeight:
+ *                 type: number
+ *               dogSex:
+ *                 type: string
+ *               dogBreed:
+ *                 type: string
+ *               dogAdopted:
+ *                 type: boolean
+ *               suitableForKids:
+ *                 type: boolean
+ *               suitableForOtherPets:
+ *                 type: boolean
+ *               dogDescription:
+ *                 type: string
+ *               dogPhotoURL:
+ *                 type: string
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       302:
+ *         description: Dog details updated successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.put("/:id", upload.single("dogPhotoURL"), async (req, res) => {
   try {

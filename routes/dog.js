@@ -4,6 +4,46 @@ const prisma = require("../prisma");
 
 // Route to view and get all the dogs in adoption
 
+/**
+ * @swagger
+ * /dog/pending:
+ *   get:
+ *     summary: View Dogs Available for Adoption
+ *     description: Retrieves and displays all dogs available for adoption.
+ *     responses:
+ *       200:
+ *         description: Returns a list of dogs available for adoption.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   dogName:
+ *                     type: string
+ *                   dogAge:
+ *                     type: number
+ *                   dogWeight:
+ *                     type: number
+ *                   dogSex:
+ *                     type: string
+ *                   dogBreed:
+ *                     type: string
+ *                   suitableForKids:
+ *                     type: boolean
+ *                   suitableForOtherPets:
+ *                     type: boolean
+ *                   dogDescription:
+ *                     type: string
+ *                   dogPhotoURL:
+ *                     type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.get("/pending", async (req, res) => {
   try {
     const dogs = await prisma.dog.findMany({
@@ -20,6 +60,46 @@ router.get("/pending", async (req, res) => {
 
 //Route to view and get all the dogs adopted
 
+/**
+ * @swagger
+ * /dog/adopted:
+ *   get:
+ *     summary: View Adopted Dogs
+ *     description: Retrieves and displays all adopted dogs.
+ *     responses:
+ *       200:
+ *         description: Returns a list of adopted dogs.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   dogName:
+ *                     type: string
+ *                   dogAge:
+ *                     type: number
+ *                   dogWeight:
+ *                     type: number
+ *                   dogSex:
+ *                     type: string
+ *                   dogBreed:
+ *                     type: string
+ *                   suitableForKids:
+ *                     type: boolean
+ *                   suitableForOtherPets:
+ *                     type: boolean
+ *                   dogDescription:
+ *                     type: string
+ *                   dogPhotoURL:
+ *                     type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
+
 router.get("/adopted", async (req, res) => {
   try {
     const dogs = await prisma.dog.findMany({
@@ -35,6 +115,51 @@ router.get("/adopted", async (req, res) => {
 });
 
 //Route to view the details from one dog
+
+/**
+ * @swagger
+ * /dog/{id}:
+ *   get:
+ *     summary: View Dog Details
+ *     description: Retrieves and displays details for a specific dog.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Returns details for the specified dog.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                 dogName:
+ *                   type: string
+ *                 dogAge:
+ *                   type: number
+ *                 dogWeight:
+ *                   type: number
+ *                 dogSex:
+ *                   type: string
+ *                 dogBreed:
+ *                   type: string
+ *                 suitableForKids:
+ *                   type: boolean
+ *                 suitableForOtherPets:
+ *                   type: boolean
+ *                 dogDescription:
+ *                   type: string
+ *                 dogPhotoURL:
+ *                   type: string
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -55,6 +180,26 @@ router.get("/:id", async (req, res) => {
 });
 
 //Route to delete the dog from the data base
+
+/**
+ * @swagger
+ * /dog/delete/{id}:
+ *   delete:
+ *     summary: Delete Dog
+ *     description: Deletes a specific dog from the database.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the dog.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Dog deleted successfully.
+ *       400:
+ *         description: Bad request or server error.
+ */
 
 router.delete("/delete/:id", async (req, res) => {
   try {
