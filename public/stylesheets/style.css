@@ -47,3 +47,8 @@ div {
   margin-bottom: 18px;
   font-weight: bold;
 }
+
+.singleDogForUsers {
+  display: flex;
+  gap: 100px;
+}

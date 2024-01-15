@@ -1,21 +1,25 @@
-<p>Dog Name: {{dog.dogName}}</p>
-<p>Dog Age: {{dog.dogAge}} years</p>
-<p>Dog Weight: {{dog.dogWeight}} kilos</p>
-<p>Dog Sex: {{dog.dogSex}}</p>
-<p>Dog Breed: {{dog.dogBreed}}</p>
-<p>Is this dog suitable for kids? {{dog.suitableForKids}}</p>
-<p>Is this dog suitable for other pets? {{dog.suitableForOtherPets}}</p>
-<p>Dog Description: {{dog.dogDescription}}</p>
+<div class="singleDogForUsers">
+  <div>
+    <p>Dog Name: {{dog.dogName}}</p>
+    <p>Dog Age: {{dog.dogAge}} years</p>
+    <p>Dog Weight: {{dog.dogWeight}} kilos</p>
+    <p>Dog Sex: {{dog.dogSex}}</p>
+    <p>Dog Breed: {{dog.dogBreed}}</p>
+    <p>Is this dog suitable for kids? {{dog.suitableForKids}}</p>
+    <p>Is this dog suitable for other pets? {{dog.suitableForOtherPets}}</p>
+    <p>Dog Description: {{dog.dogDescription}}</p>
+  </div>
 
-<div>
-  {{#if dog.dogPhotoURL}}
-    <img
-      src="{{dog.dogPhotoURL}}"
-      alt="{{dog.dogBreed}}"
-      width="200px"
-      style="border-radius: 10%;"
-    />
-  {{/if}}
+  <div>
+    {{#if dog.dogPhotoURL}}
+      <img
+        src="{{dog.dogPhotoURL}}"
+        alt="{{dog.dogBreed}}"
+        height="250px"
+        style="border-radius: 10%;"
+      />
+    {{/if}}
+  </div>
 </div>
 
 {{#if user.isAdmin}}
