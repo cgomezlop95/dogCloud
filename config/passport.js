@@ -1,7 +1,10 @@
 const LocalStrategy = require("passport-local").Strategy;
+//var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 const passport = require("passport");
 const prisma = require("../prisma");
 const bcrypt = require("bcrypt");
+
+//require('dotenv').config();
 
 passport.use(
   new LocalStrategy(
@@ -27,6 +30,8 @@ passport.use(
     }
   )
 );
+
+//Testing if I can implement the Google authentication
 
 // Con esta linea podemos decir a passport con que propriedad puede reconocer al usuario
 passport.serializeUser((user, done) => {

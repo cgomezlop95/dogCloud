@@ -4,6 +4,7 @@ body {
     sans-serif;
   font-size: 16px;
   font-weight: 500;
+  background-color: #f7f7f7; /* Light gray */
 }
 
 a {
