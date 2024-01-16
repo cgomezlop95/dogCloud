@@ -42,15 +42,18 @@ router.post("/register", async (req, res) => {
       data: {
         email: req.body.email,
         password: hashedPassword,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phoneNumber: req.body.phoneNumber,
       },
     });
 
     let mailOptions = {
       from: "tuemail@gmail.com",
-      to: "c.gomezlop95@gmail.com",
+      to: newUser.email,
       subject: "Welcome to DoggyRescue",
       html: `
-    <p>Welcome to DoggyRescue!</p>
+    <p>Dear ${newUser.firstName}, welcome to DoggyRescue!</p>
     <p>Your account has been created with the email ${newUser.email}.</p>
     <p>Please click <a href="https://doggyrescue.onrender.com/auth/login-page">here</a> to login.</p>
   `,
