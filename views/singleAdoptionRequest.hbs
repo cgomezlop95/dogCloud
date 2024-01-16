@@ -27,7 +27,10 @@
   {{#if user.isAdmin}}
     <div class="singleAdoptionRequestChild">
       <h4>Request information</h4>
-      <p>Requester Email: {{user.email}}</p>
+      <p>Requester Name: {{user.firstName}} {{user.lastName}}</p>
+      <p>Requester Phone Number: {{user.phoneNumber}}</p>
+      <p>Requester Email:
+        <a href="mailto: {{user.email}}">{{user.email}}</a></p>
       <p>Requester Age: {{adoptionRequest.adopterAge}} years</p>
       <p>Has the requester experience on taking care of pets?
         {{adoptionRequest.hasExperience}}</p>

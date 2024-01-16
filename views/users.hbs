@@ -2,7 +2,10 @@
 <ul>
   {{#each users}}
     <li>
-      <a href="/user/{{this.id}}">{{this.email}}</a>
+      <a href="/user/{{this.id}}">{{this.firstName}}
+        {{this.lastName}}
+        -
+        {{this.email}}</a>
     </li>
   {{/each}}
 </ul>

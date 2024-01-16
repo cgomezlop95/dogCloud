@@ -1,6 +1,9 @@
+<p class="content">First Name: {{userById.firstName}}</p>
+<p class="content">Last Name: {{userById.lastName}}</p>
 <p class="content">Email: {{userById.email}}</p>
+<p class="content">Phone Number: {{userById.phoneNumber}}</p>
 <p class="content">User ID: {{userById.id}}</p>
-<p class="content">Are you an admin? {{userById.isAdmin}}</p>
+<p class="content">Admin Rights: {{userById.isAdmin}}</p>
 
 {{#unless userById.isAdmin}}
   <div>
