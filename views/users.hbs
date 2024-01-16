@@ -1,0 +1,8 @@
+<h1>All users (only admins)</h1>
+<ul>
+  {{#each users}}
+    <li>
+      <a href="/user/{{this.id}}">{{this.email}}</a>
+    </li>
+  {{/each}}
+</ul>

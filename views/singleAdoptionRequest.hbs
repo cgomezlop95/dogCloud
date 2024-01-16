@@ -61,7 +61,7 @@
         action="/adoption-requests/approve/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
         method="post"
       >
-        <button>Approve request</button>
+        <button>Approve Adoption Request</button>
       </form>
     </div>
 
@@ -70,13 +70,13 @@
         action="/adoption-requests/delete/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=DELETE"
         method="post"
       >
-        <button>Deny and delete the request</button>
+        <button>Deny and Delete Request</button>
       </form>
     </div>
 
     <div>
       <a href="/adoption-requests/pending">
-        <button>Return and view all the pending adoption requests</button>
+        <button>View All Pending Adoption Requests</button>
       </a>
     </div>
   {{/unless}}
@@ -84,7 +84,7 @@
 {{else}}
   <div>
     <a href="/my-adoption-requests/">
-      <button>Return and view all your adoption requests</button>
+      <button>View All Your Adoption Requests</button>
     </a>
   </div>
 

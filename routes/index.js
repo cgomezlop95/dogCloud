@@ -23,6 +23,8 @@ router.use(
   [isAuthenticated, isAdmin],
   require("./adoptionRequestAdminView")
 );
+router.use("/user", [isAuthenticated, isAdmin], require("./users"));
+
 router.use(
   "/my-adoption-requests",
   isAuthenticated,

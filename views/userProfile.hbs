@@ -1,0 +1,17 @@
+<p class="content">Email: {{userById.email}}</p>
+<p class="content">User ID: {{userById.id}}</p>
+<p class="content">Are you an admin? {{userById.isAdmin}}</p>
+
+{{#unless userById.isAdmin}}
+  <div>
+    <form action="/user/{{userById.id}}?_method=PUT" method="post">
+      <button>Give Admin Rights</button>
+    </form>
+  </div>
+{{/unless}}
+
+<div>
+  <a href="/user">
+    <button>View All Users</button>
+  </a>
+</div>

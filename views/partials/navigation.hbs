@@ -1,28 +1,28 @@
 <nav>
   <p>Welcome to Doggy Rescue</p>
-  {{! Permanent tabs }}
-  <a href="/dog/pending">Dogs ready to be adopted</a>
-  <a href="/dog/adopted">Adopted dogs</a>
-  <a href="/about-us">About us</a>
+  <!-- Permanent tabs -->
+  <a href="/dog/pending">Dogs Ready for Adoption</a>
+  <a href="/dog/adopted">Adopted Dogs</a>
+  <a href="/about-us">About Us</a>
 
-  {{! Depending if there is a user logged in or not }}
+  <!-- Depending on whether there is a user logged in or not -->
   {{#if user}}
-    <a href="/">My profile</a>
-    <a href="/my-adoption-requests">My adoption requests</a>
+    <a href="/">My Profile</a>
+    <a href="/my-adoption-requests">My Adoption Requests</a>
     <a href="/auth/logout">Logout</a>
   {{else}}
-    <a href="/auth/register-page">Sign up</a>
+    <a href="/auth/register-page">Sign Up</a>
     <a href="/auth/login-page">Login</a>
   {{/if}}
-
 </nav>
 
 <nav>
-  {{! Only the admin users will see these 2 options}}
+  <!-- Only admin users will see these options -->
   {{#if user.isAdmin}}
-    <p>Admin section</p>
-    <a href="/adoption-requests/approved">Adoption requests: approved</a>
-    <a href="/adoption-requests/pending">Adoption requests: pending</a>
-    <a href="/create-new-dog">Add a new dog</a>
+    <p>Admin Section</p>
+    <a href="/adoption-requests/approved">Approved Adoption Requests</a>
+    <a href="/adoption-requests/pending">Pending Adoption Requests</a>
+    <a href="/create-new-dog">Add a New Dog</a>
+    <a href="/user">View All Users</a>
   {{/if}}
 </nav>
