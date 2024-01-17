@@ -4,23 +4,29 @@
     {{#each dogs}}
       <li class="singleDog">
         <a href="/dog/{{this.id}}">
+
           {{#if this.dogPhotoURL}}
-            <img
-              src={{this.dogPhotoURL}}
-              alt={{this.dogBreed}}
-              width="200px"
-              style="border-radius: 20%;"
-            />
-          {{/if}}<br />
-          {{this.dogName}}
-          -
-          {{this.dogAge}}
-          year(s)
-        </a><br />
-        {{this.dogBreed}}
-        -
-        {{this.dogWeight}}
-        kg
+
+            <div class="dogImageContainer">
+              <img
+                src={{this.dogPhotoURL}}
+                alt={{this.dogBreed}}
+              />
+            </div>
+          {{/if}}
+
+          <div class="dogInfo">
+            {{this.dogName}}
+            -
+            {{this.dogAge}}
+            year(s)<br />
+            {{this.dogBreed}}
+            -
+            {{this.dogWeight}}
+            kg
+          </div>
+
+        </a>
       </li>
     {{/each}}
   </ul>

@@ -1,7 +1,6 @@
 body {
   padding: 20px;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
   background-color: #f7f7f7; /* Light gray */
@@ -15,23 +14,34 @@ div ul {
   display: flex;
   flex-direction: row; /* Elementos en fila (valor predeterminado) */
   flex-wrap: wrap; /* Los elementos flexibles se envuelven en varias líneas según sea necesario de arriba hacia abajo */
-  margin: 25px;
-  justify-content: space-around; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
+  justify-content: space-between; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
   list-style-type: none; /* This is to avoid the bullet points */
   text-align: center;
+  margin: 20px;
 }
 
 .singleDog {
-  border-radius: 16px;
-  margin: 20px;
-  padding: 10px;
-  border: 1px white;
-  margin-right: 20px;
+  width: 280px;
+  height: 280px;
+  margin: 30px 5px 30px 5px; /* top right bottom left */
 }
 
-.singleDog:hover {
-  font-weight: bold;
-  border: 1px black solid;
+.dogImageContainer {
+  max-width: 100%;
+  max-height: 80%;
+  overflow: hidden;
+}
+
+.dogImageContainer img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.dogInfo {
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in the width calculation */
 }
 
 .singleAdoptionRequest {
@@ -92,4 +102,9 @@ button:not([disabled]):hover {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
     -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
     0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+footer {
+  text-align: right;
+  font-style: italic;
 }
