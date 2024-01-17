@@ -89,10 +89,17 @@ router.post("/", upload.single("dogPhotoURL"), async (req, res) => {
       suitableForKids,
       suitableForOtherPets,
       dogDescription,
+      isVaccinated,
+      isSterilized,
+      potentiallyDangerousDog,
     } = req.body;
     const isDogAdopted = dogAdopted === "on" ? true : false;
     const isSuitableForKids = suitableForKids === "on" ? true : false;
     const isSuitableForOtherPets = suitableForOtherPets === "on" ? true : false;
+    const isPotentiallyDangerousDog =
+      potentiallyDangerousDog === "on" ? true : false;
+    const isVaccinatedBoolean = isVaccinated === "on" ? true : false;
+    const isSterilizedBoolean = isSterilized === "on" ? true : false;
     const dogAgeFloat = parseFloat(dogAge);
     const dogWeightFloat = parseFloat(dogWeight);
     await prisma.dog.create({
@@ -107,6 +114,9 @@ router.post("/", upload.single("dogPhotoURL"), async (req, res) => {
         suitableForOtherPets: isSuitableForOtherPets,
         dogDescription,
         dogPhotoURL: dogPhotoURL,
+        potentiallyDangerousDog: isPotentiallyDangerousDog,
+        isVaccinated: isVaccinatedBoolean,
+        isSterilized: isSterilizedBoolean,
       },
     });
     res.redirect("/dog/pending");
