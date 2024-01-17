@@ -83,6 +83,7 @@ router.get("/approved", async (req, res) => {
     res.render("adoptionRequestAdminView", {
       adoptionRequests: adoptionRequestList,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);
@@ -171,6 +172,7 @@ router.get("/pending", async (req, res) => {
     res.render("adoptionRequestAdminViewPending", {
       adoptionRequests: adoptionRequestList,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);
@@ -299,6 +301,7 @@ router.get("/:id", async (req, res) => {
     res.render("singleAdoptionRequest", {
       adoptionRequest: singleAdoptionRequest,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);

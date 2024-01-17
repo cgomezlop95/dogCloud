@@ -1,5 +1,4 @@
-<h1>Adoption requests (only admins)</h1>
-<h2>Approved</h2>
+<h1>Approved Adoption Requests</h1>
 <div>
   {{#each adoptionRequests}}
     {{#if this.requestApproved}}
@@ -7,7 +6,7 @@
         {{this.adopterAge}}
         years -
         {{this.user.email}}
-        wants to adopt
+        has adopted
         {{this.dog.dogName}}
       </a>
       <br />

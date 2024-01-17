@@ -5,7 +5,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 const isAdmin = require("../middlewares/isAdmin");
 
 router.get("/", isAuthenticated, function (req, res, next) {
-  res.render("index", { title: "Welcome to DoggyRescue", user: req.user });
+  res.render("index", { title: "DoggyRescue", user: req.user });
 });
 
 router.use("/auth", require("./auth"));

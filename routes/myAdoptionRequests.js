@@ -84,6 +84,7 @@ router.get("/", async (req, res) => {
     res.render("myAdoptionRequests", {
       adoptionRequests: adoptionRequestList,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);
@@ -211,6 +212,7 @@ router.get("/:id", async (req, res) => {
       adoptionRequest: singleAdoptionRequest,
       user: req.user,
       isUserRequester: singleAdoptionRequest.userId === req.user.id,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);

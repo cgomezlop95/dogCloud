@@ -51,7 +51,7 @@ router.get("/pending", async (req, res) => {
         dogAdopted: false,
       },
     });
-    res.render("dogs", { dogs: dogs, user: req.user });
+    res.render("dogs", { dogs: dogs, user: req.user, title: "DoggyRescue" });
   } catch (error) {
     console.error(error);
     res.json("Server error");
@@ -107,7 +107,7 @@ router.get("/adopted", async (req, res) => {
         dogAdopted: true,
       },
     });
-    res.render("dogs", { dogs: dogs, user: req.user });
+    res.render("dogs", { dogs: dogs, user: req.user, title: "DoggyRescue" });
   } catch (error) {
     console.error(error);
     res.json("Server error");
@@ -172,6 +172,7 @@ router.get("/:id", async (req, res) => {
     res.render("singleDog", {
       dog: dogById,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);

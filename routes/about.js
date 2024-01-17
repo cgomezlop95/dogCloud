@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render("about", { user: req.user });
+    res.render("about", { user: req.user, title: "DoggyRescue" });
   } catch (error) {
     console.error(error);
     res.json("Server error");

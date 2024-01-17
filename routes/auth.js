@@ -121,7 +121,7 @@ router.post(
  *         description: Returns the login page.
  */
 router.get("/login-page", (req, res) => {
-  res.render("login", { error: req.flash("error") });
+  res.render("login", { error: req.flash("error"), title: "DoggyRescue" });
 });
 
 /**
@@ -135,7 +135,7 @@ router.get("/login-page", (req, res) => {
  *         description: Returns the registration page.
  */
 router.get("/register-page", (req, res) => {
-  res.render("register", { error: req.flash("error") });
+  res.render("register", { error: req.flash("error"), title: "DoggyRescue" });
 });
 
 /**

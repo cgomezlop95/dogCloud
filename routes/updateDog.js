@@ -63,6 +63,7 @@ router.get("/:id", async (req, res) => {
     res.render("updateDog", {
       dog: dogById,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);

@@ -34,6 +34,7 @@ router.get("/:id", async (req, res) => {
     res.render("adoptionRequest", {
       dog: dogById,
       user: req.user,
+      title: "DoggyRescue",
     });
   } catch (error) {
     console.error(error);
