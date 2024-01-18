@@ -1,14 +1,15 @@
-<h1>Approved Adoption Requests</h1>
-<div>
+<h3>Approved Adoption Requests</h3>
+<ul>
   {{#each adoptionRequests}}
     {{#if this.requestApproved}}
-      <a href="/adoption-requests/{{this.userId}}_{{this.dogId}}">
-        {{this.user.firstName}}
-        {{this.user.lastName}}
-        has adopted
-        {{this.dog.dogName}}
-      </a>
-      <br />
+      <li>
+        <a href="/adoption-requests/{{this.userId}}_{{this.dogId}}">
+          {{this.user.firstName}}
+          {{this.user.lastName}}
+          has adopted
+          {{this.dog.dogName}}
+        </a>
+      </li>
     {{/if}}
   {{/each}}
-</div>
+</ul>

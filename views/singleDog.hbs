@@ -7,7 +7,11 @@
     <p>Dog Breed: {{dog.dogBreed}}</p>
     <p>Is this dog suitable for kids? {{dog.suitableForKids}}</p>
     <p>Is this dog suitable for other pets? {{dog.suitableForOtherPets}}</p>
+    <p>Is this dog potentially dangerous? {{dog.potentiallyDangerousDog}}</p>
+    <p>Is this dog sterilized? {{dog.isSterilized}}</p>
+    <p>Is this dog vaccinated? {{dog.isVaccinated}}</p>
     <p>Dog Description: {{dog.dogDescription}}</p>
+    <p>Dog Adopted: {{dog.dogAdopted}}</p>
   </div>
 
   <div>
@@ -15,8 +19,8 @@
       <img
         src="{{dog.dogPhotoURL}}"
         alt="{{dog.dogBreed}}"
-        height="250px"
-        style="border-radius: 10%;"
+        height="450px"
+        style="border-radius: 10px;"
       />
     {{/if}}
   </div>

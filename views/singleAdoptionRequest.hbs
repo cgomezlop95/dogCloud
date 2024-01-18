@@ -2,7 +2,7 @@
 
 <div class="singleAdoptionRequest">
 
-  <div class="singleAdoptionRequestChild">
+  <div style="flex-grow: 1;">
     <h4>Dog requested</h4>
     <p>Name: {{adoptionRequest.dog.dogName}}</p>
     <p>Age: {{adoptionRequest.dog.dogAge}} year(s)</p>
@@ -14,18 +14,20 @@
     <p>Dog description: {{adoptionRequest.dog.dogDescription}}</p>
   </div>
 
-  <div class="singleAdoptionRequestChild">
+  <div
+    style="flex-grow: 1; max-width: 400px; margin-top: 70px; max-height: 450px; "
+  >
     {{#if adoptionRequest.dog.dogPhotoURL}}
       <img
         src="{{adoptionRequest.dog.dogPhotoURL}}"
         alt="{{adoptionRequest.dog.dogBreed}}"
-        style="max-width: 100%; max-height: 100%;"
+        style="max-width: 100%; max-height: 100%; border-radius: 10px; "
       />
     {{/if}}
   </div>
 
-  {{#if user.isAdmin}}
-    <div class="singleAdoptionRequestChild">
+  <div style="flex-grow: 1;">
+    {{#if user.isAdmin}}
       <h4>Request information</h4>
       <p>Requester Name: {{user.firstName}} {{user.lastName}}</p>
       <p>Requester Phone Number: {{user.phoneNumber}}</p>
@@ -52,8 +54,8 @@
         {{adoptionRequest.monthlyMoney}}
         euros per month</p>
       <p>Requester Description: {{adoptionRequest.adopterDescription}}</p>
-    </div>
-  {{/if}}
+    {{/if}}
+  </div>
 
 </div>
 

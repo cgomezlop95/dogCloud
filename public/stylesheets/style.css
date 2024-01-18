@@ -1,8 +1,8 @@
 body {
-  padding: 20px;
+  padding: 20px 20px 20px 60px; /* Added more padding on the left side (40px) */
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  min-height: 92vh; /* To fix the footer at the bottom right side */
+  min-height: 92vh; /* This can help in keeping the footer at the bottom right side of the page. */
   display: flex;
   flex-direction: column;
   background-color: #1a1a2e; /* Dark Blue */
@@ -16,13 +16,20 @@ body {
 .nav-title {
   font-size: 18px;
   font-weight: bold;
+  color: #3498db; /* A medium blue color */
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin-right: 40px;
 }
 
 a {
   color: #ffffff; /* Default text color */
   text-decoration: none; /* Remove default underline */
-  /* Transition for smooth effect */
-  transition: color 0.3s, text-decoration 0.3s;
 }
 
 a:hover {
@@ -31,14 +38,26 @@ a:hover {
   text-decoration: none;
 }
 
-div ul {
+.singleDogForUsers {
   display: flex;
-  flex-direction: row; /* Elementos en fila (valor predeterminado) */
-  flex-wrap: wrap; /* Los elementos flexibles se envuelven en varias líneas según sea necesario de arriba hacia abajo */
+  gap: 100px;
+  margin: 50px;
+}
+
+.singleAdoptionRequest {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+#dogsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
   list-style-type: none; /* This is to avoid the bullet points */
-  text-align: center;
   margin: 20px;
+  text-align: center;
 }
 
 .singleDog {
@@ -57,72 +76,42 @@ div ul {
   width: 80%;
   height: 80%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .dogInfo {
   margin-top: 10px;
   width: 100%;
-  box-sizing: border-box; /* Include padding in the width calculation */
-}
-
-.singleAdoptionRequest {
-  display: flex;
-  gap: 100px;
-}
-
-nav {
-  margin-bottom: 20px;
-}
-
-nav a {
-  margin-right: 20px;
-}
-
-div {
-  margin-bottom: 18px;
-  font-weight: bold;
-}
-
-.singleDogForUsers {
-  display: flex;
-  gap: 100px;
+  box-sizing: border-box;
 }
 
 /* https://getcssscan.com/css-buttons-examples - by Pintura */
 
 button {
-  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
+  background: linear-gradient(to bottom right, #0074cc, #4eb3d3);
   border: 0;
   border-radius: 12px;
   color: #ffffff;
   cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
-  outline: transparent;
   padding: 0 1rem;
   text-align: center;
   text-decoration: none;
   transition: box-shadow 0.2s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   white-space: nowrap;
+  margin-bottom: 20px;
 }
 
-button:not([disabled]):focus {
+button:hover {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
-    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
-    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+    -0.125rem -0.125rem 1rem rgba(72, 134, 180, 0.5),
+    0.125rem 0.125rem 1rem rgba(106, 171, 203, 0.5);
 }
 
-button:not([disabled]):hover {
-  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
-    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
-    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+form div {
+  margin-bottom: 20px;
 }
 
 footer {
