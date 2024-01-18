@@ -3,9 +3,8 @@
   {{#each adoptionRequests}}
     {{#unless this.requestApproved}}
       <a href="/adoption-requests/{{this.userId}}_{{this.dogId}}">
-        {{this.adopterAge}}
-        years -
-        {{this.user.email}}
+        {{this.user.firstName}}
+        {{this.user.lastName}}
         would like to adopt
         {{this.dog.dogName}}
       </a>

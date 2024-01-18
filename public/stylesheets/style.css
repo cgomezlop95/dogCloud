@@ -2,12 +2,33 @@ body {
   padding: 20px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  font-weight: 500;
-  background-color: #f7f7f7; /* Light gray */
+  min-height: 92vh; /* To fix the footer at the bottom right side */
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a2e; /* Dark Blue */
+  color: #ffffff;
+}
+
+.body-content {
+  flex: 1;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 a {
-  color: #00b7ff;
+  color: #ffffff; /* Default text color */
+  text-decoration: none; /* Remove default underline */
+  /* Transition for smooth effect */
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+a:hover {
+  color: #4eb3d3; /* Lighter blue for text color on hover */
+  font-weight: bold;
+  text-decoration: none;
 }
 
 div ul {

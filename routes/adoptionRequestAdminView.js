@@ -162,6 +162,8 @@ router.get("/pending", async (req, res) => {
         user: {
           select: {
             email: true,
+            firstName: true,
+            lastName: true,
           },
         },
         dog: {

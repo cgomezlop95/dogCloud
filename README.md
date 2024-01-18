@@ -2,20 +2,25 @@
 
 ## Description
 
-Briefly describe what your project does. Include any important information about its purpose, use cases, and functionality.
+This is a website for a dog shelter, which is connected to the data bases of the dogs, users and adoption requests.
+
+Users can browse through profiles of dogs in need of a home, submit adoption requests, and engage with the adoption process.
 
 ## Features
 
-- View the dogs in adoption
-- View the dogs which were adopted
-- Request the adoption for one dog and email the request to the admin 
-- View the user profile with the adoption requests
-- Create a new dog and add it to the data base (only for admins)
-- Update the dog details (only for admins)
+- Users can browse through profiles of dogs available for adoption
+- Users can see a list of dogs that have already found their forever homes
+- Users can create personal profiles and log in to the site
+- Users can submit adoption requests for specific dogs, with request notifications sent to administrators via email 
+- Users can see their profiles, including a history of adoption requests
+
+Admin-Only Features:
+- Administrators can create profiles for new dogs and add them to the database
+- Administrators can modify information about dogs in the database
+- Administrators have the ability to review and approve adoption requests
+- Administrators can access a list of all users registered on the site
 
 ## Installation
-
-Provide step-by-step instructions on how to get a development environment running.
 
 ```bash
 git clone https://github.com/cgomezlop95/doggyRescue
@@ -29,38 +34,25 @@ Creating a comprehensive README for your Express project is crucial for document
 
 ## API Documentation
 
-If applicable, include details about your API endpoints, or provide a link to where the API documentation is hosted.
+https://fakerjs.dev/api/
+https://www.passportjs.org/
+https://expressjs.com/en/4x/api.html
+https://nodemailer.com/
 
-## Configuration
-
-Discuss any configuration files and environment variables needed to run your project.
-
-## Tests
-
-Describe how to run the automated tests for this system.
-
-```bash
-npm test
-```
 
 ## Authors
 
 - **Cristina Gómez** - [cgomezlop95/](https://github.com/cgomezlop95/)
 
-## License
-
-This project is licensed under the XYZ License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
+- Inspiration: 
+https://www.instagram.com/doghorsecity/
+https://www.instagram.com/galgosdelsol/
+https://www.instagram.com/asr_animalsoulrescue/
 
 ### Notes:
 
-- **DoggyRescue**: Replace with the name of your project.
-- **https://github.com/cgomezlop95/doggyRescue**: Provide the link to your project's repository.
-- **Cristina Gómez**: Replace with your actual name and GitHub username.
-- **License**: If your project doesn't have a license yet, you might want to choose one. Open-source licenses like MIT, GPL, or Apache are popular choices.
+- **DoggyRescue**
+- **https://github.com/cgomezlop95/doggyRescue**
+- **Cristina Gómez**

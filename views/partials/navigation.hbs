@@ -1,5 +1,5 @@
 <nav>
-  <p>Welcome to Doggy Rescue</p>
+  <p class="nav-title">Welcome to Doggy Rescue</p>
   <!-- Permanent tabs -->
   <a href="/dog/pending">Dogs Ready for Adoption</a>
   <a href="/dog/adopted">Adopted Dogs</a>
@@ -19,7 +19,7 @@
 <nav>
   <!-- Only admin users will see these options -->
   {{#if user.isAdmin}}
-    <p>Welcome to the Admin Section</p>
+    <p class="nav-title">Welcome to the Admin Section</p>
     <a href="/adoption-requests/approved">Approved Adoption Requests</a>
     <a href="/adoption-requests/pending">Pending Adoption Requests</a>
     <a href="/create-new-dog">Add a New Dog</a>
