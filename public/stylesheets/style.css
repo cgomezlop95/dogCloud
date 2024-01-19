@@ -44,6 +44,12 @@ a:hover {
   margin: 50px;
 }
 
+.adoptionRequestForm {
+  display: flex;
+  gap: 100px;
+  margin: 50px;
+}
+
 .singleAdoptionRequest {
   display: flex;
   flex-direction: row;
