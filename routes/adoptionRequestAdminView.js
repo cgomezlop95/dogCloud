@@ -350,7 +350,7 @@ router.delete("/delete/:id", async (req, res) => {
         },
       },
     });
-    res.redirect("/adoption-requests");
+    res.redirect("/adoption-requests/pending");
   } catch (error) {
     console.error(error);
     res.json("Server error");

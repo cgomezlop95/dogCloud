@@ -1,10 +1,12 @@
 <h3>My Adoption Requests</h3>
-<div>
+<ul>
   {{#each adoptionRequests}}
+  <li>
     <a href="/my-adoption-requests/{{this.userId}}_{{this.dogId}}">
       You want to adopt
       {{this.dog.dogName}}
     </a>- Request approved:
     {{this.requestApproved}}<br />
   {{/each}}
-</div>
+  </li>
+</ul>

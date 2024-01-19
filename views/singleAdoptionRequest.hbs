@@ -4,14 +4,15 @@
 
   <div style="flex-grow: 1;">
     <h4>Dog requested</h4>
-    <p>Name: {{adoptionRequest.dog.dogName}}</p>
-    <p>Age: {{adoptionRequest.dog.dogAge}} year(s)</p>
-    <p>Weight: {{adoptionRequest.dog.dogWeight}} kilo(s)</p>
-    <p>Sex: {{adoptionRequest.dog.dogSex}}</p>
-    <p>Breed: {{adoptionRequest.dog.dogBreed}}</p>
-    <p>Suitable for kids: {{adoptionRequest.dog.suitableForKids}}</p>
-    <p>Suitable for other pets: {{adoptionRequest.dog.suitableForOtherPets}}</p>
-    <p>Dog description: {{adoptionRequest.dog.dogDescription}}</p>
+    <p><b>Name:</b> {{adoptionRequest.dog.dogName}}</p>
+    <p><b>Age:</b> {{adoptionRequest.dog.dogAge}} year(s)</p>
+    <p><b>Weight:</b> {{adoptionRequest.dog.dogWeight}} kilo(s)</p>
+    <p><b>Sex:</b> {{adoptionRequest.dog.dogSex}}</p>
+    <p><b>Breed:</b> {{adoptionRequest.dog.dogBreed}}</p>
+    <p><b>Suitable for kids:</b> {{adoptionRequest.dog.suitableForKids}}</p>
+    <p><b>Suitable for other pets:</b>
+      {{adoptionRequest.dog.suitableForOtherPets}}</p>
+    <p><b>Dog description:</b> {{adoptionRequest.dog.dogDescription}}</p>
   </div>
 
   <div
@@ -29,31 +30,36 @@
   <div style="flex-grow: 1;">
     {{#if user.isAdmin}}
       <h4>Request information</h4>
-      <p>Requester Name: {{adoptionRequest.user.firstName}} {{adoptionRequest.user.lastName}}</p>
-      <p>Requester Phone Number: {{adoptionRequest.user.phoneNumber}}</p>
-      <p>Requester Email:
-        <a href="mailto: {{adoptionRequest.user.email}}">{{adoptionRequest.user.email}}</a></p>
-      <p>Requester Age: {{adoptionRequest.adopterAge}} years</p>
-      <p>Has the requester experience on taking care of pets?
+      <p><b>Requester Name:</b>
+        {{adoptionRequest.user.firstName}}
+        {{adoptionRequest.user.lastName}}</p>
+      <p><b>Requester Phone Number:</b> {{adoptionRequest.user.phoneNumber}}</p>
+      <p><b>Requester Email:</b>
+        <a
+          href="mailto: {{adoptionRequest.user.email}}"
+        >{{adoptionRequest.user.email}}</a></p>
+      <p><b>Requester Age:</b> {{adoptionRequest.adopterAge}} years</p>
+      <p><b>Has the requester experience on taking care of pets?</b>
         {{adoptionRequest.hasExperience}}</p>
-      <p>How many hours does the requester spend out of home every day?
+      <p><b>How many hours does the requester spend out of home every day?</b>
         {{adoptionRequest.dailyHoursAway}}
         hours</p>
-      <p>Does the requester have a terrace or garden?
+      <p><b>Does the requester have a terrace or garden?</b>
         {{adoptionRequest.hasGarden}}</p>
-      <p>Does the requester have kids? {{adoptionRequest.hasKids}}</p>
-      <p>Does the requester have other pets in the house?
+      <p><b>Does the requester have kids?</b> {{adoptionRequest.hasKids}}</p>
+      <p><b>Does the requester have other pets in the house?</b>
         {{adoptionRequest.hasOtherPets}}</p>
-      <p>How many people do they live in the house?
+      <p><b>How many people do they live in the house?</b>
         {{adoptionRequest.numberOfPeople}}
         people</p>
-      <p>How many trips does the requester do every year?
+      <p><b>How many trips does the requester do every year?</b>
         {{adoptionRequest.numberOfTrips}}
         trips per year</p>
-      <p>Which would be the expected monthly allowance for the dog?
+      <p><b>Which would be the expected monthly allowance for the dog?</b>
         {{adoptionRequest.monthlyMoney}}
         euros per month</p>
-      <p>Requester Description: {{adoptionRequest.adopterDescription}}</p>
+      <p><b>Requester Description:</b>
+        {{adoptionRequest.adopterDescription}}</p>
     {{/if}}
   </div>
 
