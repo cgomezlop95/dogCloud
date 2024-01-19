@@ -5,8 +5,6 @@ const prisma = require("../prisma");
 const upload = require("../config/multer");
 const handleUpload = require("../middlewares/handleUpload");
 
-// Route to update the dog details
-
 /**
  * @swagger
  * /update-dog/{id}:

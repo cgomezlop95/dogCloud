@@ -31,10 +31,10 @@ npm install
 
 ## API Documentation
 
-https://fakerjs.dev/api/
-https://www.passportjs.org/
-https://expressjs.com/en/4x/api.html
-https://nodemailer.com/
+- https://fakerjs.dev/api/
+- https://www.passportjs.org/
+- https://expressjs.com/en/4x/api.html
+- https://nodemailer.com/
 
 ## Authors
 
@@ -42,10 +42,11 @@ https://nodemailer.com/
 
 ## Acknowledgments
 
-- Inspiration:
-  https://www.instagram.com/doghorsecity/
-  https://www.instagram.com/galgosdelsol/
-  https://www.instagram.com/asr_animalsoulrescue/
+Inspiration:
+
+- https://www.instagram.com/doghorsecity/
+- https://www.instagram.com/galgosdelsol/
+- https://www.instagram.com/asr_animalsoulrescue/
 
 ### Notes:
 

@@ -5,8 +5,6 @@ const prisma = require("../prisma");
 const upload = require("../config/multer");
 const handleUpload = require("../middlewares/handleUpload");
 
-//Route to create and add a new dog to the data base
-
 /**
  * @swagger
  * /create-new-dog:

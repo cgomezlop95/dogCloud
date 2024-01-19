@@ -3,11 +3,9 @@ const router = express.Router();
 const prisma = require("../prisma");
 const transporter = require("../config/nodemailer");
 
-// Route to request the adoption for one dog (view the form and add the request to the DB)
-
 /**
  * @swagger
- * /adoption-request/{id}:
+ * /request-dog/{id}:
  *   get:
  *     summary: Adoption Request Form
  *     description: Renders the adoption request form for a specific dog.
@@ -21,6 +19,8 @@ const transporter = require("../config/nodemailer");
  *     responses:
  *       200:
  *         description: Returns the adoption request form for the specified dog.
+ *       302:
+ *         description: Temporary Redirect.
  */
 
 router.get("/:id", async (req, res) => {
@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
 
 /**
  * @swagger
- * /adoption-request/{id}:
+ * /request-dog/{id}:
  *   post:
  *     summary: Submit Adoption Request
  *     description: Submits an adoption request for a specific dog.

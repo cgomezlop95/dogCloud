@@ -92,8 +92,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-//Route to view only one adoption request (for the user, not the admin)
-
 /**
  * @swagger
  * /my-adoption-requests/{id}:

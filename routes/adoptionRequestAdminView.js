@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
 
-//To view all the approved requests
-
 /**
  * @swagger
  * /adoption-requests/approved:
@@ -92,8 +90,6 @@ router.get("/approved", async (req, res) => {
     res.json("Server error");
   }
 });
-
-//To view all the pending approvals
 
 /**
  * @swagger
@@ -184,11 +180,9 @@ router.get("/pending", async (req, res) => {
   }
 });
 
-//Route to view only one adoption request
-
 /**
  * @swagger
- * /adoption-request/{id}:
+ * /adoption-requests/{id}:
  *   get:
  *     summary: View Single Adoption Request
  *     description: Retrieves information about a specific adoption request.
@@ -316,11 +310,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//Route for the admin to delete one request
-
 /**
  * @swagger
- * /adoption-request/delete/{id}:
+ * /adoption-requests/delete/{id}:
  *   delete:
  *     summary: Delete Adoption Request
  *     description: Deletes a specific adoption request.
@@ -334,6 +326,8 @@ router.get("/:id", async (req, res) => {
  *     responses:
  *       204:
  *         description: Adoption request deleted successfully.
+ *       302:
+ *         description: Admin is redirected to the pending adoption request view
  *       400:
  *         description: Bad request or server error.
  */
@@ -357,11 +351,9 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
-//Route for the admin to approve the request
-
 /**
  * @swagger
- * /adoption-request/approve/{id}:
+ * /adoption-requests/approve/{id}:
  *   put:
  *     summary: Approve Adoption Request
  *     description: Approves a specific adoption request and marks the dog as adopted.
@@ -377,6 +369,8 @@ router.delete("/delete/:id", async (req, res) => {
  *         description: Adoption request approved successfully.
  *       400:
  *         description: Bad request or server error.
+ *       302:
+ *         description: Admin is redirected to the pending adoption request view
  */
 
 router.put("/approve/:id", async (req, res) => {

@@ -2,7 +2,18 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
 
-//Route for the admin to view all the users registered in the site
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Get all users
+ *     description: Retrieve a list of all users.
+ *     responses:
+ *       200:
+ *         description: Successful operation. Returns a list of users.
+ *       500:
+ *         description: Server error. Unable to retrieve users.
+ */
 
 router.get("/", async (req, res) => {
   try {
@@ -14,9 +25,27 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router;
-
-//Route for the admin to view the details for one user
+/**
+ * @swagger
+ * /user/{id}:
+ *   get:
+ *     summary: Get user by ID
+ *     description: Retrieve details for a specific user by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the user.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful operation. Returns details for the specified user.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error. Unable to retrieve user details.
+ */
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -37,7 +66,27 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//Route for the admin to give admin rights to the user
+/**
+ * @swagger
+ * /users/{id}:
+ *   put:
+ *     summary: Grant admin rights to user
+ *     description: Grant admin rights to a specific user by ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the user.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Admin rights granted successfully.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Server error. Unable to grant admin rights.
+ */
 
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
@@ -56,3 +105,5 @@ router.put("/:id", async (req, res) => {
     res.json("Server error");
   }
 });
+
+module.exports = router;

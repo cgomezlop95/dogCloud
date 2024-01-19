@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../prisma");
 
-// Route to view and get all the dogs in adoption
-
 /**
  * @swagger
  * /dog/pending:
@@ -58,8 +56,6 @@ router.get("/pending", async (req, res) => {
   }
 });
 
-//Route to view and get all the dogs adopted
-
 /**
  * @swagger
  * /dog/adopted:
@@ -113,8 +109,6 @@ router.get("/adopted", async (req, res) => {
     res.json("Server error");
   }
 });
-
-//Route to view the details from one dog
 
 /**
  * @swagger
@@ -179,8 +173,6 @@ router.get("/:id", async (req, res) => {
     res.json("Server error");
   }
 });
-
-//Route to delete the dog from the data base
 
 /**
  * @swagger
