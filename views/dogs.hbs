@@ -8,10 +8,7 @@
           {{#if this.dogPhotoURL}}
 
             <div class="dogImageContainer">
-              <img
-                src={{this.dogPhotoURL}}
-                alt={{this.dogBreed}}
-              />
+              <img src={{this.dogPhotoURL}} alt={{this.dogBreed}} />
             </div>
           {{/if}}
 
@@ -23,7 +20,10 @@
             {{this.dogBreed}}
             -
             {{this.dogWeight}}
-            kg
+            kg<br />
+            {{#if this.dogAdopted}}
+              <b>Adopted</b>
+            {{/if}}
           </div>
 
         </a>

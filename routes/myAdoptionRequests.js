@@ -212,7 +212,6 @@ router.get("/:id", async (req, res) => {
     res.render("singleAdoptionRequest", {
       adoptionRequest: singleAdoptionRequest,
       user: req.user,
-      isUserRequester: singleAdoptionRequest.userId === req.user.id,
       title: "DoggyRescue",
     });
   } catch (error) {

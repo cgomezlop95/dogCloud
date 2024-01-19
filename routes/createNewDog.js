@@ -92,6 +92,8 @@ router.post("/", upload.single("dogPhotoURL"), async (req, res) => {
       potentiallyDangerousDog,
     } = req.body;
     const isDogAdopted = dogAdopted === "on" ? true : false;
+    //If dogAdopted is equal to "on", then isDogAdopted is assigned the value true.
+    //If dogAdopted is not equal to "on", then isDogAdopted is assigned the value false.
     const isSuitableForKids = suitableForKids === "on" ? true : false;
     const isSuitableForOtherPets = suitableForOtherPets === "on" ? true : false;
     const isPotentiallyDangerousDog =
