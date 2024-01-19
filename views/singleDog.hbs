@@ -35,24 +35,34 @@
       <button>Request Adoption for this Dog</button>
     </a>
   </div>
-{{/unless}}
 
-<div>
-  <a href="/dog/pending">
-    <button>View All Dogs</button>
-  </a>
-</div>
-
-{{#if user.isAdmin}}
   <div>
-    <a href="/update-dog/{{dog.id}}">
-      <button>Update Dog Details</button>
+    <a href="/dog/pending">
+      <button>View All Dogs Pending Adoption</button>
     </a>
   </div>
+{{/unless}}
 
+{{#if dog.dogAdopted}}
   <div>
-    <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
-      <button>Delete Dog from Database</button>
-    </form>
+    <a href="/dog/adopted">
+      <button>View All Adopted Dogs</button>
+    </a>
   </div>
+{{/if}}
+
+{{#if user.isAdmin}}
+  {{#unless dog.dogAdopted}}
+    <div>
+      <a href="/update-dog/{{dog.id}}">
+        <button>Update Dog Details</button>
+      </a>
+    </div>
+
+    <div>
+      <form action="/dog/delete/{{dog.id}}?_method=DELETE" method="post">
+        <button>Delete Dog from Database</button>
+      </form>
+    </div>
+  {{/unless}}
 {{/if}}
