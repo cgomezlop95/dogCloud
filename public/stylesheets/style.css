@@ -60,7 +60,7 @@ a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
+  justify-content: space-around; /* Los elementos se distribuyen uniformemente con espacio entre ellos.*/
   list-style-type: none; /* This is to avoid the bullet points */
   margin: 20px;
   text-align: center;
