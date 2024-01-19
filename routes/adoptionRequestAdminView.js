@@ -285,6 +285,9 @@ router.get("/:id", async (req, res) => {
           select: {
             email: true,
             isAdmin: true,
+            firstName: true,
+            lastName: true,
+            phoneNumber: true,
           },
         },
         dog: {
