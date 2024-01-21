@@ -35,7 +35,7 @@ a {
 a:hover {
   color: #4eb3d3; /* Lighter blue for text color on hover */
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: underline; /* Add underline on hover */
 }
 
 .singleDogForUsers {

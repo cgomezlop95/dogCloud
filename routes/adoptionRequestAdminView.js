@@ -168,9 +168,46 @@ router.get("/pending", async (req, res) => {
           },
         },
       },
+      where: {
+        requestApproved: null,
+      },
     });
     res.render("adoptionRequestAdminViewPending", {
       adoptionRequests: adoptionRequestList,
+      user: req.user,
+      title: "DoggyRescue",
+    });
+  } catch (error) {
+    console.error(error);
+    res.json("Server error");
+  }
+});
+
+//Rejected view
+
+router.get("/rejected", async (req, res) => {
+  try {
+    const adoptionRequestListRejected = await prisma.adoptionRequest.findMany({
+      include: {
+        user: {
+          select: {
+            email: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+        dog: {
+          select: {
+            dogName: true,
+          },
+        },
+      },
+      where: {
+        requestApproved: false,
+      },
+    });
+    res.render("adoptionRequestAdminViewRejected", {
+      adoptionRequests: adoptionRequestListRejected,
       user: req.user,
       title: "DoggyRescue",
     });
@@ -312,47 +349,6 @@ router.get("/:id", async (req, res) => {
 
 /**
  * @swagger
- * /adoption-requests/delete/{id}:
- *   delete:
- *     summary: Delete Adoption Request
- *     description: Deletes a specific adoption request.
- *     parameters:
- *       - in: path
- *         name: id
- *         description: The ID of the adoption request (userId_dogId).
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       204:
- *         description: Adoption request deleted successfully.
- *       302:
- *         description: Admin is redirected to the pending adoption request view
- *       400:
- *         description: Bad request or server error.
- */
-
-router.delete("/delete/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const [userId, dogId] = id.split("_"); // Assuming the format is userId_dogId
-    await prisma.adoptionRequest.delete({
-      where: {
-        userId_dogId: {
-          userId,
-          dogId,
-        },
-      },
-    });
-    res.redirect("/adoption-requests/pending");
-  } catch (error) {
-    console.error(error);
-    res.json("Server error");
-  }
-});
-
-/**
- * @swagger
  * /adoption-requests/approve/{id}:
  *   put:
  *     summary: Approve Adoption Request
@@ -394,6 +390,56 @@ router.put("/approve/:id", async (req, res) => {
       },
       data: {
         dogAdopted: true,
+      },
+    });
+    res.redirect("/adoption-requests/pending");
+  } catch (error) {
+    console.error(error);
+    res.json("Server error");
+  }
+});
+
+/**
+ * @swagger
+ * /deny/{id}:
+ *   put:
+ *     summary: Deny Adoption Request
+ *     description: Denies a pending adoption request.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the adoption request (userId_dogId).
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Adoption request denied successfully.
+ *       302:
+ *         description: Redirect to /adoption-requests/pending
+ *       500:
+ *         description: Server error.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
+ *               description: Error message.
+ */
+
+router.put("/deny/:id", async (req, res) => {
+  const { id } = req.params;
+  const [userId, dogId] = id.split("_"); // Assuming the format is userId_dogId
+  try {
+    await prisma.adoptionRequest.update({
+      where: {
+        userId_dogId: {
+          userId: userId,
+          dogId: dogId,
+        },
+      },
+      data: {
+        requestApproved: false,
       },
     });
     res.redirect("/adoption-requests/pending");

@@ -88,7 +88,7 @@ router.get("/:id", async (req, res) => {
  *         description: Server error. Unable to grant admin rights.
  */
 
-router.put("/:id", async (req, res) => {
+router.put("/give-admin/:id", async (req, res) => {
   const { id } = req.params;
   try {
     await prisma.user.update({
@@ -97,6 +97,24 @@ router.put("/:id", async (req, res) => {
       },
       data: {
         isAdmin: true,
+      },
+    });
+    res.redirect("/user");
+  } catch (error) {
+    console.error(error);
+    res.json("Server error");
+  }
+});
+
+router.put("/remove-admin/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        isAdmin: false,
       },
     });
     res.redirect("/user");

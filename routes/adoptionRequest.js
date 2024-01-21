@@ -101,14 +101,13 @@ router.post("/:id", async (req, res) => {
         id,
       },
     });
-    const isRequestApproved = "requestApproved" in req.body;
     const ifExperience = "hasExperience" in req.body;
     const ifOtherPets = "hasOtherPets" in req.body;
     const ifKids = "hasKids" in req.body;
     const ifGarden = "hasGarden" in req.body;
     const newRequest = await prisma.adoptionRequest.create({
       data: {
-        requestApproved: isRequestApproved,
+        requestApproved: null,
         adopterAge: parseFloat(req.body.adopterAge),
         hasExperience: ifExperience,
         dailyHoursAway: parseFloat(req.body.dailyHoursAway),

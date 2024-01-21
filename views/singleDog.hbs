@@ -5,15 +5,16 @@
     <p><b>Dog Weight:</b> {{dog.dogWeight}} kilos</p>
     <p><b>Dog Sex:</b> {{dog.dogSex}}</p>
     <p><b>Dog Breed:</b> {{dog.dogBreed}}</p>
-    <p><b>Is this dog suitable for kids?</b> {{dog.suitableForKids}}</p>
+    <p><b>Is this dog suitable for kids?</b>
+      {{booleanConverter dog.suitableForKids}}</p>
     <p><b>Is this dog suitable for other pets?</b>
-      {{dog.suitableForOtherPets}}</p>
+      {{booleanConverter dog.suitableForOtherPets}}</p>
     <p><b>Is this dog potentially dangerous?</b>
-      {{dog.potentiallyDangerousDog}}</p>
-    <p><b>Is this dog sterilized?</b> {{dog.isSterilized}}</p>
-    <p><b>Is this dog vaccinated?</b> {{dog.isVaccinated}}</p>
+      {{booleanConverter dog.potentiallyDangerousDog}}</p>
+    <p><b>Is this dog sterilized?</b> {{booleanConverter dog.isSterilized}}</p>
+    <p><b>Is this dog vaccinated?</b> {{booleanConverter dog.isVaccinated}}</p>
     <p><b>Dog Description:</b> {{dog.dogDescription}}</p>
-    <p><b>Dog Adopted:</b> {{dog.dogAdopted}}</p>
+    <p><b>Dog Adopted:</b> {{booleanConverter dog.dogAdopted}}</p>
 
   </div>
 

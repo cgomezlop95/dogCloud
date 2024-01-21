@@ -9,9 +9,10 @@
     <p><b>Weight:</b> {{adoptionRequest.dog.dogWeight}} kilo(s)</p>
     <p><b>Sex:</b> {{adoptionRequest.dog.dogSex}}</p>
     <p><b>Breed:</b> {{adoptionRequest.dog.dogBreed}}</p>
-    <p><b>Suitable for kids:</b> {{adoptionRequest.dog.suitableForKids}}</p>
+    <p><b>Suitable for kids:</b>
+      {{booleanConverter adoptionRequest.dog.suitableForKids}}</p>
     <p><b>Suitable for other pets:</b>
-      {{adoptionRequest.dog.suitableForOtherPets}}</p>
+      {{booleanConverter adoptionRequest.dog.suitableForOtherPets}}</p>
     <p><b>Dog description:</b> {{adoptionRequest.dog.dogDescription}}</p>
   </div>
 
@@ -30,6 +31,8 @@
   <div style="flex-grow: 1;">
     {{#if user.isAdmin}}
       <h4>Request information</h4>
+      <p><b>Request Status:</b>
+        {{booleanConverterRequest adoptionRequest.requestApproved}}</p>
       <p><b>Requester Name:</b>
         {{adoptionRequest.user.firstName}}
         {{adoptionRequest.user.lastName}}</p>
@@ -40,15 +43,16 @@
         >{{adoptionRequest.user.email}}</a></p>
       <p><b>Requester Age:</b> {{adoptionRequest.adopterAge}} years</p>
       <p><b>Has the requester experience on taking care of pets?</b>
-        {{adoptionRequest.hasExperience}}</p>
+        {{booleanConverter adoptionRequest.hasExperience}}</p>
       <p><b>How many hours does the requester spend out of home every day?</b>
         {{adoptionRequest.dailyHoursAway}}
         hours</p>
       <p><b>Does the requester have a terrace or garden?</b>
-        {{adoptionRequest.hasGarden}}</p>
-      <p><b>Does the requester have kids?</b> {{adoptionRequest.hasKids}}</p>
+        {{booleanConverter adoptionRequest.hasGarden}}</p>
+      <p><b>Does the requester have kids?</b>
+        {{booleanConverter adoptionRequest.hasKids}}</p>
       <p><b>Does the requester have other pets in the house?</b>
-        {{adoptionRequest.hasOtherPets}}</p>
+        {{booleanConverter adoptionRequest.hasOtherPets}}</p>
       <p><b>How many people do they live in the house?</b>
         {{adoptionRequest.numberOfPeople}}
         people</p>
@@ -78,10 +82,10 @@
 
     <div>
       <form
-        action="/adoption-requests/delete/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=DELETE"
+        action="/adoption-requests/deny/{{adoptionRequest.userId}}_{{adoptionRequest.dogId}}?_method=PUT"
         method="post"
       >
-        <button>Deny and Delete Request</button>
+        <button>Deny Adoption Request</button>
       </form>
     </div>
 
