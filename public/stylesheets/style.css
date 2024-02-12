@@ -120,6 +120,12 @@ form div {
   margin-bottom: 20px;
 }
 
+.filter {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
 footer {
   text-align: right;
   font-style: italic;
